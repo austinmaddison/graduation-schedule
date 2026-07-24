@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 
+const props = withDefaults(
+  defineProps<{
+    guestList?: 'family' | 'friends';
+  }>(),
+  { guestList: 'family' },
+);
+
 const { locale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
@@ -245,6 +252,16 @@ const friends: Guest[] = [
   { name: { en: 'Lana', th: 'ลาน่า' }, role: 'guestRoles.friend' },
 ];
 
+const displayedGuests = computed(() =>
+  props.guestList === 'friends' ? friends : familyGuests,
+);
+const displayedGuestKicker = computed(() =>
+  props.guestList === 'friends' ? 'friendKicker' : 'guestKicker',
+);
+const displayedGuestList = computed(() =>
+  props.guestList === 'friends' ? 'friendList' : 'guestList',
+);
+
 useHead(() => ({
   htmlAttrs: {
     lang: locale.value,
@@ -385,23 +402,41 @@ useHead(() => ({
         </div>
       </section>
 
-      <section class="guest-section" aria-labelledby="guest-directories-title">
+      <section class="guest-section" aria-labelledby="guest-list-title">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">{{ t('directoryKicker') }}</p>
-            <h2 id="guest-directories-title">{{ t('guestDirectories') }}</h2>
+            <p class="section-kicker">{{ t(displayedGuestKicker) }}</p>
+            <h2 id="guest-list-title">{{ t(displayedGuestList) }}</h2>
           </div>
+          <Tag severity="secondary">
+            {{ t('guestCount', { count: displayedGuests.length }) }}
+          </Tag>
         </div>
 
-        <div class="guest-directory-links">
-          <NuxtLink :to="localePath('/family')" class="guest-directory-link">
-            {{ t('viewFamily') }}
-            <span class="pi pi-arrow-right" aria-hidden="true" />
-          </NuxtLink>
-          <NuxtLink :to="localePath('/friends')" class="guest-directory-link">
-            {{ t('viewFriends') }}
-            <span class="pi pi-arrow-right" aria-hidden="true" />
-          </NuxtLink>
+        <div class="guest-grid">
+          <article v-for="guest in displayedGuests" :key="guest.name.en" class="guest">
+            <Avatar
+              v-if="guest.image"
+              :image="guest.image"
+              :aria-label="displayGuestName(guest)"
+              shape="circle"
+              size="xlarge"
+            />
+            <Avatar
+              v-else
+              :label="displayGuestName(guest).slice(0, 1)"
+              :aria-label="displayGuestName(guest)"
+              shape="circle"
+              size="xlarge"
+            />
+            <div class="guest-copy">
+              <h3>{{ displayGuestName(guest) }}</h3>
+              <p>
+                <span>{{ t(guest.role) }}</span>
+                <span v-if="guest.note" class="guest-note">{{ guest.note }}</span>
+              </p>
+            </div>
+          </article>
         </div>
       </section>
 
