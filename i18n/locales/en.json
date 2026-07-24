@@ -1,0 +1,77 @@
+{
+  "languageName": "English",
+  "alternateLanguage": "ไทย",
+  "switchLanguage": "Switch to Thai",
+  "venue": "Mahidol University · Salaya, Thailand",
+  "openInGoogleMaps": "Open in Google Maps",
+  "universityLocation": {
+    "label": "University location",
+    "mapLabel": "Map of Mahidol University, Salaya",
+    "photoAlt": "Prince Mahidol Hall at Mahidol University"
+  },
+  "plans": "Tentative graduation plans",
+  "optionLabel": "Plan",
+  "pros": "Pros",
+  "cons": "Cons",
+  "timeline": "Schedule",
+  "location": "Location",
+  "dinner": "Dinner",
+  "guestKicker": "Family & friends",
+  "guestList": "Guest list",
+  "guestCount": "{count} invited",
+  "guestRoles": {
+    "mother": "Mother",
+    "father": "Father",
+    "sister": "Sister",
+    "brother": "Brother",
+    "friend": "Friend",
+    "aunt": "Aunt",
+    "uncle": "Uncle",
+    "grandma": "Grandma",
+    "bigSister": "Big sister",
+    "bigBrother": "Big brother"
+  },
+  "guestStatus": {
+    "attending": "Attending",
+    "awaiting": "Awaiting reply"
+  },
+  "stays": {
+    "kicker": "Stay nearby",
+    "title": "Hotels near Mahidol",
+    "mapTitle": "Hotels near Mahidol University, Salaya",
+    "nearCampus": "Near the Salaya campus",
+    "searchPlaceholder": "Search nearby hotels",
+    "searchLabel": "Search nearby hotels",
+    "clearSearch": "Clear hotel search",
+    "showAll": "Show all",
+    "resultsLabel": "Nearby hotel options",
+    "selectHotel": "Show on map",
+    "directions": "Directions",
+    "noResults": "No matching hotels",
+    "flexibilityNote": "Guests are welcome to choose any hotel that suits them, whether near campus or elsewhere."
+  },
+  "restaurants": {
+    "kicker": "Dine nearby",
+    "title": "Restaurants near Mahidol",
+    "description": "The family dinner restaurant has not been selected yet. We will choose a nearby option closer to the graduation date.",
+    "selectedLabel": "Selected restaurant",
+    "selectedValue": "To be determined",
+    "browse": "Browse nearby restaurants",
+    "mapLabel": "Map of restaurants near Mahidol University, Salaya",
+    "resultsLabel": "Nearby restaurant options",
+    "searchPlaceholder": "Search nearby restaurants",
+    "searchLabel": "Search nearby restaurants",
+    "clearSearch": "Clear restaurant search",
+    "showAll": "Show all",
+    "noResults": "No matching restaurants",
+    "directions": "Directions",
+    "locations": {
+      "musicSquare": "College of Music, Mahidol University",
+      "salayaPavilion": "Mahidol University International College",
+      "herbGarden": "Salaya Pavilion Hotel",
+      "princessCafe": "Mahidol University, Salaya",
+      "pizzaAhmuay": "Opposite Mahidol University Gate 4",
+      "alt242": "Mahidol University, Salaya"
+    }
+  }
+}

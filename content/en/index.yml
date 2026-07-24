@@ -1,0 +1,69 @@
+title: Austin Jetrin Maddison's Graduation Tentative Schedule
+options:
+  - id: rehearsal
+    letter: A
+    title: Rehearsal Day
+    date: Saturday, 3 October 2026
+    tone: success
+    badge: Easier logistics
+    pros:
+      - Less traffic
+      - Roads are not closed
+      - Less tiring
+    cons:
+      - The degree will not yet be in hand
+    rows:
+      - time: TBD (morning/afternoon)
+        activity: Graduation rehearsal
+        location: Prince Mahidol Hall, Mahidol University
+        notes: Expected between morning and early afternoon
+      - time: TBD (afternoon)
+        activity: Photos with classmates
+        location: Prince Mahidol Hall / Salaya Campus
+        notes: Class and group photos
+      - time: TBD (afternoon)
+        activity: Photos with family
+        location: Prince Mahidol Hall / Salaya Campus
+        notes: Family portraits and individual photos
+      - time: TBD (afternoon/evening)
+        activity: Travel to restaurant
+        location: TBD
+        notes: Allow time for traffic
+      - time: TBD (evening)
+        activity: Dinner with family
+        location: Restaurant TBD
+        notes: Family dinner after rehearsal
+  - id: ceremony
+    letter: B
+    title: Graduation Ceremony
+    date: 5 or 6 October 2026
+    tone: contrast
+    badge: Official day
+    pros:
+      - Degree in hand
+    cons:
+      - More traffic
+      - People might accidentally arrive late
+      - More tiring
+      - Local restaurants are crowded
+    rows:
+      - time: TBD (morning/afternoon)
+        activity: Registration and official ceremony
+        location: Prince Mahidol Hall, Mahidol University
+        notes: Exact date and time TBD
+      - time: TBD (afternoon)
+        activity: Photos with classmates
+        location: Prince Mahidol Hall / Salaya Campus
+        notes: Class and group photos
+      - time: TBD (afternoon)
+        activity: Photos with family
+        location: Prince Mahidol Hall / Salaya Campus
+        notes: Family portraits and individual photos
+      - time: TBD (afternoon/evening)
+        activity: Travel to restaurant
+        location: TBD
+        notes: Allow extra time because of traffic
+      - time: TBD (evening)
+        activity: Graduation dinner with family
+        location: Restaurant TBD
+        notes: Local restaurants may be crowded
