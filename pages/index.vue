@@ -17,6 +17,23 @@ const { data: schedule } = await useAsyncData(
 
 const otherLocale = computed(() => (locale.value === 'en' ? 'th' : 'en'));
 const alternatePath = computed(() => switchLocalePath(otherLocale.value));
+const headline = ref<HTMLElement>();
+const isHeadlineVisible = ref(true);
+let headlineObserver: IntersectionObserver | undefined;
+
+onMounted(() => {
+  if (!headline.value) return;
+
+  headlineObserver = new IntersectionObserver(
+    ([entry]) => {
+      isHeadlineVisible.value = entry.isIntersecting;
+    },
+    { rootMargin: '-76px 0px 0px', threshold: 0 },
+  );
+  headlineObserver.observe(headline.value);
+});
+
+onBeforeUnmount(() => headlineObserver?.disconnect());
 
 const getLocationMapsUrl = (location: string) => {
   if (!location.includes('Mahidol') && !location.includes('มหิดล')) {
@@ -219,10 +236,9 @@ useHead(() => ({
     <header class="site-header">
       <Menubar :model="[]" class="masthead">
         <template #start>
-          <div class="event-mark" aria-label="Austin Jetrin Maddison">
-            <span class="event-monogram">AJM</span>
-            <span class="event-year">Graduation · 2026</span>
-          </div>
+          <span v-if="!isHeadlineVisible" class="header-title">
+            {{ schedule.title }}
+          </span>
         </template>
 
         <template #end>
@@ -242,7 +258,7 @@ useHead(() => ({
 
     <main class="page">
       <section class="hero" aria-labelledby="page-title">
-        <h1 id="page-title" class="title">{{ schedule.title }}</h1>
+        <h1 ref="headline" id="page-title" class="title">{{ schedule.title }}</h1>
         <UniversityLocationCard />
       </section>
 
