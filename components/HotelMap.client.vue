@@ -9,6 +9,7 @@ import {
   setWorkerUrl,
 } from 'maplibre-gl';
 import mapLibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+import { openStreetMapStyle } from '~/utils/openStreetMapStyle';
 
 setWorkerUrl(mapLibreWorkerUrl);
 
@@ -164,7 +165,7 @@ onMounted(async () => {
 
   map = new MapLibreMap({
     container: mapContainer.value,
-    style: 'https://tiles.openfreemap.org/styles/positron',
+    style: openStreetMapStyle,
     center: [100.3205, 13.7988],
     zoom: 14,
     attributionControl: false,

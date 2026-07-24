@@ -7,10 +7,13 @@ import {
   setWorkerUrl,
 } from 'maplibre-gl';
 import mapLibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?url';
+import { openStreetMapStyle } from '~/utils/openStreetMapStyle';
 
 setWorkerUrl(mapLibreWorkerUrl);
 
 const { t } = useI18n();
+const assetUrl = (path: string) =>
+  `${useRuntimeConfig().app.baseURL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
 const mapContainer = ref<HTMLDivElement>();
 const venueCoordinates: [number, number] = [100.32278, 13.79552];
 
@@ -24,7 +27,7 @@ onMounted(async () => {
 
   map = new MapLibreMap({
     container: mapContainer.value,
-    style: 'https://tiles.openfreemap.org/styles/positron',
+    style: openStreetMapStyle,
     center: venueCoordinates,
     zoom: 15.2,
     attributionControl: false,
@@ -81,7 +84,7 @@ onBeforeUnmount(() => {
     </div>
     <img
       class="university-photo"
-      src="/images/university/prince-mahidol-hall.png"
+      :src="assetUrl('images/university/prince-mahidol-hall.png')"
       :alt="t('universityLocation.photoAlt')"
     />
     <div

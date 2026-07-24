@@ -4,6 +4,8 @@ import type { Collections } from '@nuxt/content';
 const { locale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const localePath = useLocalePath();
+const assetUrl = (path: string) =>
+  `${useRuntimeConfig().app.baseURL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
 
 const collection = computed(() => `schedule_${locale.value}` as keyof Collections);
 
@@ -30,63 +32,63 @@ const hotels = [
     name: 'Salaya One Hotel',
     mapsUrl: 'https://maps.app.goo.gl/9WK9s6KtiB13umtV9',
     coordinates: [100.3118697, 13.8012853],
-    image: '/images/hotels/salaya-one.webp',
+    image: assetUrl('images/hotels/salaya-one.webp'),
   },
   {
     id: 'the-palm',
     name: 'The Palm Hotel',
     mapsUrl: 'https://maps.app.goo.gl/wdkhbZeXN4UheFuH7',
     coordinates: [100.328138, 13.8007086],
-    image: '/images/hotels/the-palm.webp',
+    image: assetUrl('images/hotels/the-palm.webp'),
   },
   {
     id: '24-poshtel',
     name: '24 Poshtel Salaya',
     mapsUrl: 'https://maps.app.goo.gl/QkJU8AhUZ1RdDMyZ9',
     coordinates: [100.31211, 13.8020133],
-    image: '/images/hotels/24-poshtel.webp',
+    image: assetUrl('images/hotels/24-poshtel.webp'),
   },
   {
     id: 'the-time-24',
     name: 'The Time 24 Hotel',
     mapsUrl: 'https://maps.app.goo.gl/VGLQuxdBL5NHs3Ej6',
     coordinates: [100.3275706, 13.8014471],
-    image: '/images/hotels/the-time-24.jpg',
+    image: assetUrl('images/hotels/the-time-24.jpg'),
   },
   {
     id: 'miracle-place',
     name: 'Miracle Place',
     mapsUrl: 'https://maps.app.goo.gl/ooymG5dfCfSnDCgu5',
     coordinates: [100.3117771, 13.8016046],
-    image: '/images/hotels/miracle-place.jpg',
+    image: assetUrl('images/hotels/miracle-place.jpg'),
   },
   {
     id: 'the-september',
     name: 'The September Salaya',
     mapsUrl: 'https://maps.app.goo.gl/tZ44yPp5PceM1vaW6',
     coordinates: [100.3115152, 13.8000272],
-    image: '/images/hotels/the-september.jpg',
+    image: assetUrl('images/hotels/the-september.jpg'),
   },
   {
     id: 'tap-salaya',
     name: 'TAP Salaya',
     mapsUrl: 'https://maps.app.goo.gl/esuxcZJzDpdf79os6',
     coordinates: [100.3124351, 13.7972855],
-    image: '/images/hotels/tap-salaya.webp',
+    image: assetUrl('images/hotels/tap-salaya.webp'),
   },
   {
     id: 'loft-salaya',
     name: 'LOFT Salaya',
     mapsUrl: 'https://maps.app.goo.gl/XUNVfRvjHCvfMohh7',
     coordinates: [100.3283366, 13.7982481],
-    image: '/images/hotels/loft-salaya.jpg',
+    image: assetUrl('images/hotels/loft-salaya.jpg'),
   },
   {
     id: 'the-residenz-mb',
     name: 'The Residenz @ MB',
     mapsUrl: 'https://maps.app.goo.gl/NNLkBcWFFwMNL4KL6',
     coordinates: [100.3262992, 13.7971648],
-    image: '/images/hotels/the-residenz-mb.jpg',
+    image: assetUrl('images/hotels/the-residenz-mb.jpg'),
   },
   {
     id: 'salaya-pavilion',
@@ -94,7 +96,7 @@ const hotels = [
     mapsUrl:
       'https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University',
     coordinates: [100.3262253, 13.7930217],
-    image: '/images/hotels/salaya-pavilion.jpg',
+    image: assetUrl('images/hotels/salaya-pavilion.jpg'),
   },
 ] as const;
 
@@ -103,104 +105,104 @@ const guests = [
     name: 'Aunt Eet',
     role: 'guestRoles.aunt',
     note: 'Mom 2',
-    image: '/images/guests/aunt-eet.jpg',
+    image: assetUrl('images/guests/aunt-eet.jpg'),
   },
   {
     name: 'Uncle Korn',
     role: 'guestRoles.uncle',
     note: 'Dad 2',
-    image: '/images/guests/uncle-korn.jpg',
+    image: assetUrl('images/guests/uncle-korn.jpg'),
   },
   {
     name: 'Aunt Toi',
     role: 'guestRoles.aunt',
     note: 'Mom 2',
-    image: '/images/guests/aunt-toi.jpg',
+    image: assetUrl('images/guests/aunt-toi.jpg'),
   },
   {
     name: 'Aunt Took',
     role: 'guestRoles.aunt',
     note: 'Wine Aunt',
-    image: '/images/guests/aunt-took.jpg',
+    image: assetUrl('images/guests/aunt-took.jpg'),
   },
   {
     name: 'Aunt Tick',
     role: 'guestRoles.aunt',
     note: 'Cool Aunt',
-    image: '/images/guests/aunt-tick.jpg',
+    image: assetUrl('images/guests/aunt-tick.jpg'),
   },
   {
     name: 'Uncle Pedth',
     role: 'guestRoles.uncle',
     note: 'Cool Uncle',
-    image: '/images/guests/uncle-pedth.jpg',
+    image: assetUrl('images/guests/uncle-pedth.jpg'),
   },
   {
     name: 'Aunt Oi',
     role: 'guestRoles.aunt',
     note: 'Mom 2',
-    image: '/images/guests/aunt-oi.jpg',
+    image: assetUrl('images/guests/aunt-oi.jpg'),
   },
   {
     name: 'Uncle Bui',
     role: 'guestRoles.uncle',
     note: 'Cool Uncle',
-    image: '/images/guests/uncle-bui.jpg',
+    image: assetUrl('images/guests/uncle-bui.jpg'),
   },
   {
     name: 'Khun Yaiy (Grandma)',
     role: 'guestRoles.grandma',
-    image: '/images/guests/khun-yaiy.jpg',
+    image: assetUrl('images/guests/khun-yaiy.jpg'),
   },
   {
     name: "P'Nay",
     role: 'guestRoles.bigSister',
-    image: '/images/guests/p-nay.jpg',
+    image: assetUrl('images/guests/p-nay.jpg'),
   },
   {
     name: "P'Dar",
     role: 'guestRoles.mother',
-    image: '/images/guests/p-dar.jpg',
+    image: assetUrl('images/guests/p-dar.jpg'),
   },
   {
     name: "P'Poom",
     role: 'guestRoles.bigBrother',
-    image: '/images/guests/p-poom.jpg',
+    image: assetUrl('images/guests/p-poom.jpg'),
   },
   {
     name: "P'Fern",
     role: 'guestRoles.bigSister',
-    image: '/images/guests/p-fern.jpg',
+    image: assetUrl('images/guests/p-fern.jpg'),
   },
   {
     name: "P'Game",
     role: 'guestRoles.bigBrother',
-    image: '/images/guests/p-game.jpg',
+    image: assetUrl('images/guests/p-game.jpg'),
   },
   {
     name: "P'Palm",
     role: 'guestRoles.bigBrother',
-    image: '/images/guests/p-palm.jpg',
+    image: assetUrl('images/guests/p-palm.jpg'),
   },
   {
     name: "P'Plai",
     role: 'guestRoles.bigBrother',
-    image: '/images/guests/p-plai.jpg',
+    image: assetUrl('images/guests/p-plai.jpg'),
   },
   {
     name: "P'Dream",
     role: 'guestRoles.bigSister',
-    image: '/images/guests/p-dream.jpg',
+    image: assetUrl('images/guests/p-dream.jpg'),
   },
   {
     name: "K'Wiparat (Mom)",
     role: 'guestRoles.mother',
-    image: '/images/guests/k-wiparat.jpg',
+    image: assetUrl('images/guests/k-wiparat.jpg'),
   },
   {
     name: "K'John (Dad)",
     role: 'guestRoles.father',
-    image: '/images/guests/k-john.jpg',
+    image: assetUrl('images/guests/k-john.jpg'),
   },
 ] as const;
 
