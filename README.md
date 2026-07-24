@@ -1,7 +1,6 @@
 # Graduation Schedule
 
-A minimal Nuxt site for comparing graduation rehearsal and ceremony plans in English and Thai.
-It uses PrimeVue for the interface, Nuxt Content YAML files for schedule data, `@nuxtjs/i18n` for localized routes, and self-hosted Fontsource fonts.
+A single bilingual (EN/TH) graduation invite landing page built on the [Nuxt UI Portfolio template](https://github.com/nuxt-ui-templates/portfolio). The homepage runs Hero → Plans → Hotels → Restaurants → Family → FAQ, with a separate `/friends` guest list. Includes MapLibre maps and self-hosted Fontsource fonts.
 
 ## Content
 
@@ -15,14 +14,14 @@ English is served at `/`. Thai is served at `/th`.
 ## Local Development
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ## Static Build
 
 ```bash
-npm run generate
+pnpm generate
 ```
 
 The generated site is written to `.output/public`. The production build includes the Inter and Noto Sans Thai Looped font assets, so GitHub Pages can serve the site without external font requests.

@@ -1,5 +1,9 @@
-title: กำหนดการรับปริญญาแบบคร่าว ๆ ของ Austin Jetrin Maddison
-options:
+title: คุณได้รับเชิญร่วมงานรับปริญญาของ Austin!
+description: มาร่วมยินดีกับผมในเดือนตุลาคม 2569 ที่มหาวิทยาลัยมหิดล ศาลายา ประเทศไทย
+seo:
+  title: งานรับปริญญาของ Austin · มหาวิทยาลัยมหิดล
+  description: คำเชิญสองภาษาสำหรับงานรับปริญญาของ Austin Jetrin Maddison ที่มหาวิทยาลัยมหิดล ศาลายา — กำหนดการ ที่พัก ร้านอาหาร และรายชื่อแขก
+plans:
   - id: rehearsal
     letter: A
     title: วันซ้อมรับปริญญา
@@ -67,3 +71,192 @@ options:
         activity: รับประทานอาหารฉลองกับครอบครัว
         location: ร้านอาหารรอยืนยัน
         notes: ร้านอาหารใกล้เคียงอาจมีคนแน่น
+hotels:
+  - id: salaya-one
+    name: Salaya One Hotel
+    mapsUrl: https://maps.app.goo.gl/9WK9s6KtiB13umtV9
+    coordinates: [100.3118697, 13.8012853]
+    image: /images/hotels/salaya-one.webp
+  - id: the-palm
+    name: The Palm Hotel
+    mapsUrl: https://maps.app.goo.gl/wdkhbZeXN4UheFuH7
+    coordinates: [100.328138, 13.8007086]
+    image: /images/hotels/the-palm.webp
+  - id: 24-poshtel
+    name: 24 Poshtel Salaya
+    mapsUrl: https://maps.app.goo.gl/QkJU8AhUZ1RdDMyZ9
+    coordinates: [100.31211, 13.8020133]
+    image: /images/hotels/24-poshtel.webp
+  - id: the-time-24
+    name: The Time 24 Hotel
+    mapsUrl: https://maps.app.goo.gl/VGLQuxdBL5NHs3Ej6
+    coordinates: [100.3275706, 13.8014471]
+    image: /images/hotels/the-time-24.jpg
+  - id: miracle-place
+    name: Miracle Place
+    mapsUrl: https://maps.app.goo.gl/ooymG5dfCfSnDCgu5
+    coordinates: [100.3117771, 13.8016046]
+    image: /images/hotels/miracle-place.jpg
+  - id: the-september
+    name: The September Salaya
+    mapsUrl: https://maps.app.goo.gl/tZ44yPp5PceM1vaW6
+    coordinates: [100.3115152, 13.8000272]
+    image: /images/hotels/the-september.jpg
+  - id: tap-salaya
+    name: TAP Salaya
+    mapsUrl: https://maps.app.goo.gl/esuxcZJzDpdf79os6
+    coordinates: [100.3124351, 13.7972855]
+    image: /images/hotels/tap-salaya.webp
+  - id: loft-salaya
+    name: LOFT Salaya
+    mapsUrl: https://maps.app.goo.gl/XUNVfRvjHCvfMohh7
+    coordinates: [100.3283366, 13.7982481]
+    image: /images/hotels/loft-salaya.jpg
+  - id: the-residenz-mb
+    name: The Residenz @ MB
+    mapsUrl: https://maps.app.goo.gl/NNLkBcWFFwMNL4KL6
+    coordinates: [100.3262992, 13.7971648]
+    image: /images/hotels/the-residenz-mb.jpg
+  - id: salaya-pavilion
+    name: Salaya Pavilion Hotel
+    mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
+    coordinates: [100.3262253, 13.7930217]
+    image: /images/hotels/salaya-pavilion.jpg
+restaurants:
+  note: ร้านอาหารสำหรับมื้อเย็นของครอบครัวยังไม่ได้เลือก เราจะเลือกร้านใกล้เคียงอีกครั้งเมื่อใกล้วันรับปริญญา รายการนี้เป็นเพียงคำแนะนำ ยังไม่ได้ยืนยัน
+  suggestions:
+    - id: music-square
+      name: Music Square
+      area: วิทยาลัยดุริยางคศิลป์ มหาวิทยาลัยมหิดล
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Music%20Square%20College%20of%20Music%20Mahidol%20University%20Salaya
+    - id: salaya-pavilion
+      name: Salaya Pavilion
+      area: วิทยาลัยนานาชาติ มหาวิทยาลัยมหิดล
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
+    - id: herb-garden
+      name: Herb Garden
+      area: โรงแรมศาลายาพาวิลเลียน
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Herb%20Garden%20Salaya%20Pavilion%20Hotel
+    - id: princess-cafe
+      name: Princess Cafe
+      area: มหาวิทยาลัยมหิดล ศาลายา
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Princess%20Cafe%20Mahidol%20University%20Salaya
+    - id: pizza-ahmuay
+      name: Pizza Ah Muay
+      area: ตรงข้ามประตู 4 มหาวิทยาลัยมหิดล
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Pizza%20Ah%20Muay%20Mahidol%20University%20Gate%204
+    - id: alt-242
+      name: Alt.242
+      area: มหาวิทยาลัยมหิดล ศาลายา
+      mapsUrl: https://www.google.com/maps/search/?api=1&query=Alt.242%20Mahidol%20University%20Salaya
+guests:
+  family:
+    - name: ป้าอี๊ด
+      role: guestRoles.aunt
+      note: Mom 2
+      image: /images/guests/aunt-eet.jpg
+    - name: ลุงกรณ์
+      role: guestRoles.uncle
+      note: Dad 2
+      image: /images/guests/uncle-korn.jpg
+    - name: ป้าต้อย
+      role: guestRoles.aunt
+      note: Mom 2
+      image: /images/guests/aunt-toi.jpg
+    - name: ป้าตุ๊ก
+      role: guestRoles.aunt
+      note: Wine Aunt
+      image: /images/guests/aunt-took.jpg
+    - name: ป้าติ๊ก
+      role: guestRoles.aunt
+      note: Cool Aunt
+      image: /images/guests/aunt-tick.jpg
+    - name: ลุงเพชร
+      role: guestRoles.uncle
+      note: Cool Uncle
+      image: /images/guests/uncle-pedth.jpg
+    - name: ป้าอ้อย
+      role: guestRoles.aunt
+      note: Mom 2
+      image: /images/guests/aunt-oi.jpg
+    - name: ลุงบุญ
+      role: guestRoles.uncle
+      note: Cool Uncle
+      image: /images/guests/uncle-bui.jpg
+    - name: คุณยาย
+      role: guestRoles.grandma
+      image: /images/guests/khun-yaiy.jpg
+    - name: พี่เน
+      role: guestRoles.bigSister
+      image: /images/guests/p-nay.jpg
+    - name: พี่ดาร์
+      role: guestRoles.mother
+      image: /images/guests/p-dar.jpg
+    - name: พี่ภูมิ
+      role: guestRoles.bigBrother
+      image: /images/guests/p-poom.jpg
+    - name: พี่เฟิร์น
+      role: guestRoles.bigSister
+      image: /images/guests/p-fern.jpg
+    - name: พี่เกมส์
+      role: guestRoles.bigBrother
+      image: /images/guests/p-game.jpg
+    - name: พี่ปาล์ม
+      role: guestRoles.bigBrother
+      image: /images/guests/p-palm.jpg
+    - name: พี่ปลา
+      role: guestRoles.bigBrother
+      image: /images/guests/p-plai.jpg
+    - name: พี่ดรีม
+      role: guestRoles.bigSister
+      image: /images/guests/p-dream.jpg
+    - name: คุณวิภารัตน์
+      role: guestRoles.mother
+      image: /images/guests/k-wiparat.jpg
+    - name: คุณจอห์น
+      role: guestRoles.father
+      image: /images/guests/k-john.jpg
+  friends:
+    - name: บูม
+      role: guestRoles.friend
+    - name: จัสติน
+      role: guestRoles.friend
+    - name: กลอเรีย
+      role: guestRoles.friend
+    - name: อาการิ
+      role: guestRoles.friend
+    - name: แอปปี้
+      role: guestRoles.friend
+    - name: อเล็กซ์
+      role: guestRoles.friend
+    - name: อนิช
+      role: guestRoles.friend
+    - name: คารัน
+      role: guestRoles.friend
+    - name: ลาน่า
+      role: guestRoles.friend
+faq:
+  title: คำถามที่พบบ่อย
+  description: คำถามที่แขกมักถามกันบ่อย ๆ จะมีคำตอบเพิ่มเติมเมื่อรายละเอียดต่าง ๆ ชัดเจนขึ้น
+  categories:
+    - title: การรับปริญญา
+      questions:
+        - label: คุณจบปริญญาสาขาอะไร?
+          content: วิทยาการคอมพิวเตอร์ (Computer Science)
+        - label: ทราบวันและเวลาที่แน่นอนหรือยัง?
+          content: >-
+            ยังไม่ทราบครับ วันและเวลาที่แน่นอนยังไม่ประกาศ เนื่องจากหลักสูตรอื่น ๆ
+            ของมหาวิทยาลัยยังปิดรับลงทะเบียนเข้าร่วมพิธีไม่เสร็จ เมื่อมหาวิทยาลัยยืนยันแล้ว
+            หน้านี้จะอัปเดต
+    - title: รายละเอียด
+      questions:
+        - label: การแต่งกายเป็นอย่างไร?
+          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+        - label: ต้องแจ้งยืนยันการเข้าร่วม (RSVP) ไหม?
+          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+        - label: เรื่องการเดินทางและที่จอดรถเป็นอย่างไร?
+          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+        - label: ควรเตรียมของขวัญไหม?
+          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+        - label: พาเด็ก ๆ มาด้วยได้ไหม?
+          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน

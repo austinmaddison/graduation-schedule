@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(./gradlew:*)",
+      "Bash(grep:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker ps:*)",
+      "Bash(xxd:*)",
+      "Bash(git stash:*)",
+      "Bash(git checkout:*)",
+      "Bash(docker tag:*)",
+      "Bash(docker push:*)",
+      "Bash(docker build:*)",
+      "Bash(docker info:*)",
+      "WebSearch",
+      "WebFetch(domain:resilience4j.readme.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:howtodoinjava.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:dzone.com)",
+      "WebFetch(domain:reflectoring.io)",
+      "WebFetch(domain:mvnrepository.com)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(xargs sed:*)",
+      "Bash(# Also fix root service imports \\(CanonicalProductService, PolicyService, etc.\\) and suggestion services find /Users/bsoonjun/Documents/GitHub/dataglass/dgbe/api -name \"\"*.kt\"\" -exec grep -l \"\"import com\\\\.bd\\\\.api\\\\.services\\\\.CanonicalProductService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.PolicyService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.UserService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.WorkspaceService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.AdsSuggestionService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.PricingSuggestionService\\\\|import com\\\\.bd\\\\.api\\\\.services\\\\.InventorySuggestionService\"\" {} \\\\;)",
+      "Bash(for file in /Users/bsoonjun/Documents/GitHub/dataglass/dgbe/service/src/main/kotlin/com/bd/service/*.kt /Users/bsoonjun/Documents/GitHub/dataglass/dgbe/service/src/main/kotlin/com/bd/service/*/*.kt)",
+      "Bash(do grep -H \"^class \" \"$file\")",
+      "Bash(done)",
+      "Bash(xargs:*)",
+      "Bash(git -C /Users/bsoonjun/Documents/GitHub/dataglass/dgbe diff --stat HEAD)",
+      "WebFetch(domain:blog.cleancoder.com)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/dg-docs-reminder.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

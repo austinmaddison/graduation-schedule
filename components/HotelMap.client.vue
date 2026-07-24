@@ -235,29 +235,29 @@ onBeforeUnmount(() => {
   <div class="hotel-map-shell">
     <div class="hotel-map-toolbar">
       <div class="hotel-search">
-        <span class="pi pi-search" aria-hidden="true" />
-        <InputText
+        <UIcon name="i-lucide-search" aria-hidden="true" />
+        <input
           v-model="query"
+          type="search"
           :placeholder="t('stays.searchPlaceholder')"
           :aria-label="t('stays.searchLabel')"
           @keydown.enter="selectFirstResult"
-        />
-        <Button
+        >
+        <UButton
           v-if="query"
-          text
-          rounded
-          severity="secondary"
-          icon="pi pi-times"
+          color="neutral"
+          variant="ghost"
+          icon="i-lucide-x"
           :aria-label="t('stays.clearSearch')"
           @click="clearSearch"
         />
       </div>
 
-      <Button
-        outlined
-        severity="secondary"
+      <UButton
+        color="neutral"
+        variant="outline"
         size="small"
-        icon="pi pi-expand"
+        icon="i-lucide-maximize"
         :label="t('stays.showAll')"
         @click="showAllHotels()"
       />
@@ -348,7 +348,7 @@ onBeforeUnmount(() => {
   min-width: 0;
 }
 
-.hotel-search > .pi-search {
+.hotel-search > .iconify {
   position: absolute;
   z-index: 1;
   top: 50%;
@@ -359,7 +359,7 @@ onBeforeUnmount(() => {
   transform: translateY(-50%);
 }
 
-.hotel-search :deep(.p-inputtext) {
+.hotel-search input {
   width: 100%;
   padding-left: 2.35rem;
   padding-right: 2.65rem;
@@ -368,7 +368,7 @@ onBeforeUnmount(() => {
   background: var(--surface-soft);
 }
 
-.hotel-search :deep(.p-button) {
+.hotel-search :deep(button) {
   position: absolute;
   top: 50%;
   right: 0.25rem;

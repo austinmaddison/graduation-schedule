@@ -4,6 +4,17 @@
   "switchLanguage": "Switch to Thai",
   "venue": "Mahidol University · Salaya, Thailand",
   "openInGoogleMaps": "Open in Google Maps",
+  "home": "Home",
+  "menu": "Menu",
+  "headerTitle": "Austin's Graduation",
+  "footerTagline": "Mahidol University · October 2026",
+  "nav": {
+    "plans": "Plans",
+    "hotels": "Hotels",
+    "restaurants": "Restaurants",
+    "family": "Family",
+    "faq": "FAQ"
+  },
   "universityLocation": {
     "label": "University location",
     "mapLabel": "Map of Mahidol University, Salaya",
@@ -57,6 +68,7 @@
     "kicker": "Dine nearby",
     "title": "Restaurants near Mahidol",
     "description": "The family dinner restaurant has not been selected yet. We will choose a nearby option closer to the graduation date.",
+    "suggestionsLabel": "Suggestions",
     "selectedLabel": "Selected restaurant",
     "selectedValue": "To be determined",
     "browse": "Browse nearby restaurants",
