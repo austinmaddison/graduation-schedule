@@ -43,6 +43,16 @@ const getLocationMapsUrl = (location: string) => {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
 };
 
+type Guest = {
+  name: { en: string; th: string };
+  role: string;
+  note?: string;
+  image?: string;
+};
+
+const displayGuestName = (guest: Guest) =>
+  guest.name[locale.value as 'en' | 'th'];
+
 const hotels = [
   {
     id: 'salaya-one',
@@ -115,113 +125,125 @@ const hotels = [
     coordinates: [100.3262253, 13.7930217],
     image: assetUrl('images/hotels/salaya-pavilion.jpg'),
   },
-] as const;
+];
 
-const guests = [
+const familyGuests: Guest[] = [
   {
-    name: 'Aunt Eet',
+    name: { en: 'Aunt Eet', th: 'ป้าอี๊ด' },
     role: 'guestRoles.aunt',
     note: 'Mom 2',
     image: assetUrl('images/guests/aunt-eet.jpg'),
   },
   {
-    name: 'Uncle Korn',
+    name: { en: 'Uncle Korn', th: 'ลุงกรณ์' },
     role: 'guestRoles.uncle',
     note: 'Dad 2',
     image: assetUrl('images/guests/uncle-korn.jpg'),
   },
   {
-    name: 'Aunt Toi',
+    name: { en: 'Aunt Toi', th: 'ป้าต้อย' },
     role: 'guestRoles.aunt',
     note: 'Mom 2',
     image: assetUrl('images/guests/aunt-toi.jpg'),
   },
   {
-    name: 'Aunt Took',
+    name: { en: 'Aunt Took', th: 'ป้าตุ๊ก' },
     role: 'guestRoles.aunt',
     note: 'Wine Aunt',
     image: assetUrl('images/guests/aunt-took.jpg'),
   },
   {
-    name: 'Aunt Tick',
+    name: { en: 'Aunt Tick', th: 'ป้าติ๊ก' },
     role: 'guestRoles.aunt',
     note: 'Cool Aunt',
     image: assetUrl('images/guests/aunt-tick.jpg'),
   },
   {
-    name: 'Uncle Pedth',
+    name: { en: 'Uncle Pedth', th: 'ลุงเพชร' },
     role: 'guestRoles.uncle',
     note: 'Cool Uncle',
     image: assetUrl('images/guests/uncle-pedth.jpg'),
   },
   {
-    name: 'Aunt Oi',
+    name: { en: 'Aunt Oi', th: 'ป้าอ้อย' },
     role: 'guestRoles.aunt',
     note: 'Mom 2',
     image: assetUrl('images/guests/aunt-oi.jpg'),
   },
   {
-    name: 'Uncle Bui',
+    name: { en: 'Uncle Bui', th: 'ลุงบุญ' },
     role: 'guestRoles.uncle',
     note: 'Cool Uncle',
     image: assetUrl('images/guests/uncle-bui.jpg'),
   },
   {
-    name: 'Khun Yaiy (Grandma)',
+    name: { en: 'Khun Yaiy (Grandma)', th: 'คุณยาย' },
     role: 'guestRoles.grandma',
     image: assetUrl('images/guests/khun-yaiy.jpg'),
   },
   {
-    name: "P'Nay",
+    name: { en: "P'Nay", th: 'พี่เน' },
     role: 'guestRoles.bigSister',
     image: assetUrl('images/guests/p-nay.jpg'),
   },
   {
-    name: "P'Dar",
+    name: { en: "P'Dar", th: 'พี่ดาร์' },
     role: 'guestRoles.mother',
     image: assetUrl('images/guests/p-dar.jpg'),
   },
   {
-    name: "P'Poom",
+    name: { en: "P'Poom", th: 'พี่ภูมิ' },
     role: 'guestRoles.bigBrother',
     image: assetUrl('images/guests/p-poom.jpg'),
   },
   {
-    name: "P'Fern",
+    name: { en: "P'Fern", th: 'พี่เฟิร์น' },
     role: 'guestRoles.bigSister',
     image: assetUrl('images/guests/p-fern.jpg'),
   },
   {
-    name: "P'Game",
+    name: { en: "P'Game", th: 'พี่เกมส์' },
     role: 'guestRoles.bigBrother',
     image: assetUrl('images/guests/p-game.jpg'),
   },
   {
-    name: "P'Palm",
+    name: { en: "P'Palm", th: 'พี่ปาล์ม' },
     role: 'guestRoles.bigBrother',
     image: assetUrl('images/guests/p-palm.jpg'),
   },
   {
-    name: "P'Plai",
+    name: { en: "P'Plai", th: 'พี่ปลา' },
     role: 'guestRoles.bigBrother',
     image: assetUrl('images/guests/p-plai.jpg'),
   },
   {
-    name: "P'Dream",
+    name: { en: "P'Dream", th: 'พี่ดรีม' },
     role: 'guestRoles.bigSister',
     image: assetUrl('images/guests/p-dream.jpg'),
   },
   {
-    name: "K'Wiparat (Mom)",
+    name: { en: "K'Wiparat (Mom)", th: 'คุณวิภารัตน์' },
     role: 'guestRoles.mother',
     image: assetUrl('images/guests/k-wiparat.jpg'),
   },
   {
-    name: "K'John (Dad)",
+    name: { en: "K'John (Dad)", th: 'คุณจอห์น' },
     role: 'guestRoles.father',
     image: assetUrl('images/guests/k-john.jpg'),
   },
 ] as const;
+
+const friends: Guest[] = [
+  { name: { en: 'Bhum', th: 'บูม' }, role: 'guestRoles.friend' },
+  { name: { en: 'Justin', th: 'จัสติน' }, role: 'guestRoles.friend' },
+  { name: { en: 'Gloria', th: 'กลอเรีย' }, role: 'guestRoles.friend' },
+  { name: { en: 'Akari', th: 'อาการิ' }, role: 'guestRoles.friend' },
+  { name: { en: 'Appy', th: 'แอปปี้' }, role: 'guestRoles.friend' },
+  { name: { en: 'Alex', th: 'อเล็กซ์' }, role: 'guestRoles.friend' },
+  { name: { en: 'Anish', th: 'อนิช' }, role: 'guestRoles.friend' },
+  { name: { en: 'Karan', th: 'คารัน' }, role: 'guestRoles.friend' },
+  { name: { en: 'Lana', th: 'ลาน่า' }, role: 'guestRoles.friend' },
+];
 
 useHead(() => ({
   htmlAttrs: {
@@ -363,35 +385,23 @@ useHead(() => ({
         </div>
       </section>
 
-      <section class="guest-section" aria-labelledby="guest-list-title">
+      <section class="guest-section" aria-labelledby="guest-directories-title">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">{{ t('guestKicker') }}</p>
-            <h2 id="guest-list-title">{{ t('guestList') }}</h2>
+            <p class="section-kicker">{{ t('directoryKicker') }}</p>
+            <h2 id="guest-directories-title">{{ t('guestDirectories') }}</h2>
           </div>
-          <Tag severity="secondary">
-            {{ t('guestCount', { count: guests.length }) }}
-          </Tag>
         </div>
 
-        <div class="guest-grid">
-          <article v-for="guest in guests" :key="guest.name" class="guest">
-            <Avatar
-              :image="guest.image"
-              :aria-label="guest.name"
-              shape="circle"
-              size="xlarge"
-            />
-            <div class="guest-copy">
-              <h3>{{ guest.name }}</h3>
-              <p>
-                <span>{{ t(guest.role) }}</span>
-                <span v-if="'note' in guest" class="guest-note">
-                  {{ guest.note }}
-                </span>
-              </p>
-            </div>
-          </article>
+        <div class="guest-directory-links">
+          <NuxtLink :to="localePath('/family')" class="guest-directory-link">
+            {{ t('viewFamily') }}
+            <span class="pi pi-arrow-right" aria-hidden="true" />
+          </NuxtLink>
+          <NuxtLink :to="localePath('/friends')" class="guest-directory-link">
+            {{ t('viewFriends') }}
+            <span class="pi pi-arrow-right" aria-hidden="true" />
+          </NuxtLink>
         </div>
       </section>
 

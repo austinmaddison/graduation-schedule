@@ -448,6 +448,35 @@ select {
   grid-template-columns: 1fr;
 }
 
+.directory-page {
+  padding-top: 3rem;
+}
+
+.guest-directory-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.guest-directory-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--page-foreground);
+  font-size: 0.86rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.guest-directory-link:hover {
+  border-color: var(--muted);
+}
+
 .guest {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
