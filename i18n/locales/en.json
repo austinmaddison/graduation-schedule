@@ -31,10 +31,6 @@
     "bigSister": "Big sister",
     "bigBrother": "Big brother"
   },
-  "guestStatus": {
-    "attending": "Attending",
-    "awaiting": "Awaiting reply"
-  },
   "stays": {
     "kicker": "Stay nearby",
     "title": "Hotels near Mahidol",

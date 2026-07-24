@@ -524,11 +524,6 @@ select {
   content: '';
 }
 
-.guest-status {
-  grid-column: 2;
-  justify-self: start;
-}
-
 .p-card {
   border: 1px solid var(--border);
   border-radius: 8px;

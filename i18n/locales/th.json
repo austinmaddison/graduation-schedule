@@ -31,10 +31,6 @@
     "bigSister": "พี่สาว",
     "bigBrother": "พี่ชาย"
   },
-  "guestStatus": {
-    "attending": "เข้าร่วม",
-    "awaiting": "รอตอบรับ"
-  },
   "stays": {
     "kicker": "ที่พักใกล้เคียง",
     "title": "โรงแรมใกล้มหาวิทยาลัยมหิดล",

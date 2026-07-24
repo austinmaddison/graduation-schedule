@@ -375,9 +375,6 @@ useHead(() => ({
                 </span>
               </p>
             </div>
-            <Tag severity="secondary" class="guest-status">
-              {{ t('guestStatus.awaiting') }}
-            </Tag>
           </article>
         </div>
       </section>
