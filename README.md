@@ -9,7 +9,7 @@ Schedule data lives in:
 - `content/en/index.yml`
 - `content/th/index.yml`
 
-English is served at `/`. Thai is served at `/th`.
+English is served at `/`. Thai is served at `/th/`; `/th` redirects there as well.
 
 ## Local Development
 
