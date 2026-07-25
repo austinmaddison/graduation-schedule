@@ -14,7 +14,7 @@ setWorkerUrl(mapLibreWorkerUrl);
 const { t } = useI18n();
 const assetUrl = (path: string) =>
   `${useRuntimeConfig().app.baseURL.replace(/\/$/, '')}/${path.replace(/^\//, '')}`;
-const mapContainer = ref<HTMLDivElement>();
+const mapContainer = useTemplateRef<HTMLDivElement>('mapContainer');
 const venueCoordinates: [number, number] = [100.32278, 13.79552];
 
 let map: MapLibreMap | undefined;
@@ -45,8 +45,9 @@ onMounted(async () => {
   map.addControl(new AttributionControl({ compact: true }), 'bottom-right');
 
   const markerElement = document.createElement('span');
-  markerElement.className = 'university-map-marker';
+  markerElement.className = 'university-map-marker grid size-8 place-items-center rounded-full border-2 border-default bg-inverted text-inverted shadow-lg';
   markerElement.setAttribute('aria-hidden', 'true');
+  markerElement.textContent = '•';
 
   new MapLibreMarker({ element: markerElement, anchor: 'bottom' })
     .setLngLat(venueCoordinates)
@@ -63,34 +64,82 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <article class="university-location-card">
-    <div class="university-location-copy">
-      <p class="university-location-label">{{ t('universityLocation.label') }}</p>
-      <h2>{{ t('venue') }}</h2>
-      <a
-        class="university-directions"
-        href="https://www.google.com/maps/search/?api=1&query=Prince%20Mahidol%20Hall%2C%20Mahidol%20University"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <UIcon
-          name="logos:google-maps"
-          mode="svg"
-          class="maps-logo"
-          aria-hidden="true"
+  <UCard
+    variant="subtle"
+    class="mx-auto w-full max-w-6xl"
+    :ui="{ body: 'p-0 sm:p-0' }"
+  >
+    <div class="university-location-layout">
+      <div class="flex flex-col items-start justify-center gap-6 p-6 sm:p-7">
+        <h2 id="university-location-heading" class="text-balance text-xl font-medium text-highlighted sm:text-2xl">
+          {{ t('venue') }}
+        </h2>
+        <p class="text-sm leading-6 text-muted">
+          {{ t('universityLocation.address') }}
+        </p>
+
+        <UButton
+          to="https://www.google.com/maps/search/?api=1&query=Prince%20Mahidol%20Hall%2C%20Mahidol%20University"
+          external
+          target="_blank"
+          rel="noopener noreferrer"
+          color="neutral"
+          variant="outline"
+          icon="logos:google-maps"
+          :label="t('openInGoogleMaps')"
         />
-        {{ t('openInGoogleMaps') }}
-      </a>
+      </div>
+
+      <img
+        class="university-location-image"
+        :src="assetUrl('images/university/prince-mahidol-hall.png')"
+        :alt="t('universityLocation.photoAlt')"
+      >
+      <div
+        ref="mapContainer"
+        class="university-map"
+        :aria-label="t('universityLocation.mapLabel')"
+      />
     </div>
-    <img
-      class="university-photo"
-      :src="assetUrl('images/university/prince-mahidol-hall.png')"
-      :alt="t('universityLocation.photoAlt')"
-    />
-    <div
-      ref="mapContainer"
-      class="university-map"
-      :aria-label="t('universityLocation.mapLabel')"
-    />
-  </article>
+  </UCard>
 </template>
+
+<style scoped>
+.university-location-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.9fr) repeat(2, minmax(0, 1fr));
+  min-height: 16rem;
+}
+
+.university-location-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.university-map {
+  min-height: 16rem;
+}
+
+:deep(.university-map-marker) {
+  font: 700 1.25rem/1 sans-serif;
+}
+
+:deep(.maplibregl-ctrl-group) {
+  overflow: hidden;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+@media (width < 56rem) {
+  .university-location-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .university-location-image,
+  .university-map {
+    min-height: 14rem;
+  }
+}
+</style>

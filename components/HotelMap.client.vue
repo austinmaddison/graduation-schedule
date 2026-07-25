@@ -27,21 +27,8 @@ const props = defineProps<{
 
 const { t } = useI18n();
 const mapContainer = ref<HTMLDivElement>();
-const query = ref('');
 const selectedId = ref('');
 const googleMapsIconBody = `<path fill="#34a853" d="M70.585 271.865a371 371 0 0 1 28.911 42.642c7.374 13.982 10.448 23.463 15.837 40.31c3.305 9.308 6.292 12.086 12.714 12.086c6.998 0 10.173-4.726 12.626-12.035c5.094-15.91 9.091-28.052 15.397-39.525c12.374-22.15 27.75-41.833 42.858-60.75c4.09-5.354 30.534-36.545 42.439-61.156c0 0 14.632-27.035 14.632-64.792c0-35.318-14.43-59.813-14.43-59.813l-41.545 11.126l-25.23 66.451l-6.242 9.163l-1.248 1.66l-1.66 2.078l-2.914 3.319l-4.164 4.163l-22.467 18.304l-56.17 32.432z"/><path fill="#fbbc04" d="M12.612 188.892c13.709 31.313 40.145 58.839 58.031 82.995l95.001-112.534s-13.384 17.504-37.662 17.504c-27.043 0-48.89-21.595-48.89-48.825c0-18.673 11.234-31.501 11.234-31.501l-64.489 17.28z"/><path fill="#4285f4" d="M166.705 5.787c31.552 10.173 58.558 31.53 74.893 63.023l-75.925 90.478s11.234-13.06 11.234-31.617c0-27.864-23.463-48.68-48.81-48.68c-23.969 0-37.735 17.475-37.735 17.475v-57z"/><path fill="#1a73e8" d="M30.015 45.765C48.86 23.218 82.02 0 127.736 0c22.18 0 38.89 5.823 38.89 5.823L90.29 96.516H36.205z"/><path fill="#ea4335" d="M12.612 188.892S0 164.194 0 128.414c0-33.817 13.146-63.377 30.015-82.649l60.318 50.759z"/>`;
-
-const filteredHotels = computed(() => {
-  const normalizedQuery = query.value.trim().toLocaleLowerCase();
-
-  if (!normalizedQuery) {
-    return props.hotels;
-  }
-
-  return props.hotels.filter((hotel) =>
-    hotel.name.toLocaleLowerCase().includes(normalizedQuery),
-  );
-});
 
 let map: MapLibreMap | undefined;
 let activePopup: MapLibrePopup | undefined;
@@ -123,19 +110,8 @@ const selectHotel = (hotel: Hotel) => {
   });
 };
 
-const selectFirstResult = () => {
-  const firstHotel = filteredHotels.value[0];
-  if (firstHotel) {
-    selectHotel(firstHotel);
-  }
-};
-
 const getHotelNumber = (hotelId: string) =>
   props.hotels.findIndex((hotel) => hotel.id === hotelId) + 1;
-
-const clearSearch = () => {
-  query.value = '';
-};
 
 const showAllHotels = (animated = true) => {
   if (!map || props.hotels.length === 0) {
@@ -234,30 +210,11 @@ onBeforeUnmount(() => {
 <template>
   <div class="hotel-map-shell">
     <div class="hotel-map-toolbar">
-      <div class="hotel-search">
-        <UIcon name="i-lucide-search" aria-hidden="true" />
-        <input
-          v-model="query"
-          type="search"
-          :placeholder="t('stays.searchPlaceholder')"
-          :aria-label="t('stays.searchLabel')"
-          @keydown.enter="selectFirstResult"
-        >
-        <UButton
-          v-if="query"
-          color="neutral"
-          variant="ghost"
-          icon="i-lucide-x"
-          :aria-label="t('stays.clearSearch')"
-          @click="clearSearch"
-        />
-      </div>
-
       <UButton
         color="neutral"
         variant="outline"
-        size="small"
-        icon="i-lucide-maximize"
+        size="sm"
+        icon="i-material-symbols-fit-screen-rounded"
         :label="t('stays.showAll')"
         @click="showAllHotels()"
       />
@@ -270,19 +227,23 @@ onBeforeUnmount(() => {
         :aria-label="t('stays.mapTitle')"
       />
 
-      <div
+      <UCard
         class="hotel-results"
+        variant="outline"
         role="listbox"
         :aria-label="t('stays.resultsLabel')"
+        :ui="{ body: 'p-0 sm:p-0' }"
       >
         <article
-          v-for="hotel in filteredHotels"
+          v-for="hotel in props.hotels"
           :key="hotel.id"
           class="hotel-result"
           :class="{ 'is-selected': selectedId === hotel.id }"
         >
-          <button
+          <UButton
             type="button"
+            color="neutral"
+            variant="ghost"
             class="hotel-select"
             role="option"
             :aria-selected="selectedId === hotel.id"
@@ -301,31 +262,28 @@ onBeforeUnmount(() => {
             </span>
             <span class="hotel-copy">
               <strong>{{ hotel.name }}</strong>
-              <span>{{ t('stays.nearCampus') }}</span>
             </span>
-          </button>
+          </UButton>
 
-          <a
-            :href="hotel.mapsUrl"
+          <UButton
+            :to="hotel.mapsUrl"
+            external
             target="_blank"
             rel="noopener noreferrer"
+            color="neutral"
+            variant="ghost"
+            size="md"
+            icon="logos:google-maps"
             class="hotel-directions"
             :aria-label="`${t('stays.directions')}: ${hotel.name}`"
             :title="`${t('stays.directions')}: ${hotel.name}`"
-          >
-            <UIcon
-              name="logos:google-maps"
-              mode="svg"
-              class="hotel-maps-logo"
-              aria-hidden="true"
-            />
-          </a>
+          />
         </article>
 
-        <p v-if="filteredHotels.length === 0" class="hotel-empty">
+        <p v-if="props.hotels.length === 0" class="hotel-empty">
           {{ t('stays.noResults') }}
         </p>
-      </div>
+      </UCard>
     </div>
   </div>
 </template>
@@ -338,43 +296,9 @@ onBeforeUnmount(() => {
 .hotel-map-toolbar {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.75rem;
   padding-bottom: 1rem;
-}
-
-.hotel-search {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.hotel-search > .iconify {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 0.85rem;
-  color: var(--muted);
-  font-size: 0.85rem;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-
-.hotel-search input {
-  width: 100%;
-  padding-left: 2.35rem;
-  padding-right: 2.65rem;
-  border-color: var(--border);
-  border-radius: 8px;
-  background: var(--surface-soft);
-}
-
-.hotel-search :deep(button) {
-  position: absolute;
-  top: 50%;
-  right: 0.25rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  transform: translateY(-50%);
 }
 
 .hotel-map-layout {
@@ -394,8 +318,7 @@ onBeforeUnmount(() => {
 }
 
 .hotel-results {
-  display: grid;
-  align-content: start;
+  align-self: start;
 }
 
 .hotel-result {
@@ -417,20 +340,13 @@ onBeforeUnmount(() => {
   display: grid;
   grid-template-columns: 1.75rem 4.5rem minmax(0, 1fr);
   align-items: center;
+  justify-content: start;
   gap: 0.8rem;
+  width: 100%;
   min-width: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  padding: 1rem 0.75rem 1rem 0;
+  border-radius: 0;
+  padding: 1rem 0.75rem;
   text-align: left;
-  cursor: pointer;
-}
-
-.hotel-select:focus-visible,
-.hotel-directions:focus-visible {
-  outline: 2px solid var(--page-foreground);
-  outline-offset: -2px;
 }
 
 .hotel-photo-wrap {
@@ -456,9 +372,9 @@ onBeforeUnmount(() => {
   place-items: center;
   border: 2px solid var(--surface);
   border-radius: 50%;
-  background: var(--page-foreground);
+  background: #27272a;
   box-shadow: 0 1px 4px rgb(0 0 0 / 16%);
-  color: var(--surface);
+  color: #fafafa;
   font-size: 0.65rem;
   font-weight: 750;
 }
@@ -481,27 +397,9 @@ onBeforeUnmount(() => {
   white-space: nowrap;
 }
 
-.hotel-copy span {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
 .hotel-directions {
-  display: grid;
-  width: 2.75rem;
-  place-items: center;
-  color: var(--muted-strong);
-  text-decoration: none;
-}
-
-.hotel-directions:hover {
-  background: var(--surface-soft);
-  color: var(--page-foreground);
-}
-
-.hotel-maps-logo {
-  width: 1.15rem;
-  height: 1.15rem;
+  align-self: center;
+  margin-right: 0.25rem;
 }
 
 .hotel-empty {
@@ -518,8 +416,11 @@ onBeforeUnmount(() => {
   height: 2rem;
   place-items: center;
   padding: 0;
-  border: 0;
-  background: transparent;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: #27272a;
+  color: #fafafa;
+  box-shadow: 0 3px 12px rgb(0 0 0 / 20%);
   cursor: pointer;
 }
 
@@ -528,11 +429,10 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 100%;
   place-items: center;
-  border: 3px solid var(--surface);
+  border: 0;
   border-radius: 50%;
-  background: var(--page-foreground);
-  box-shadow: 0 3px 12px rgb(0 0 0 / 20%);
-  color: var(--surface);
+  background: transparent;
+  color: inherit;
   font: 700 0.72rem/1 -apple-system, BlinkMacSystemFont, sans-serif;
   transition:
     transform 160ms ease,
@@ -541,8 +441,12 @@ onBeforeUnmount(() => {
 
 :deep(.hotel-map-marker:hover .hotel-map-marker-dot),
 :deep(.hotel-map-marker.is-selected .hotel-map-marker-dot) {
-  background: #52525b;
   transform: scale(1.14);
+}
+
+:deep(.hotel-map-marker:hover),
+:deep(.hotel-map-marker.is-selected) {
+  background: #3f3f46;
 }
 
 :deep(.hotel-map-marker:focus-visible) {

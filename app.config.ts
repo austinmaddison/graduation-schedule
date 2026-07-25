@@ -11,8 +11,24 @@ export default defineAppConfig({
   },
   ui: {
     colors: {
-      primary: 'blue',
+      primary: 'neutral',
       neutral: 'neutral'
+    },
+    icons: {
+      arrowLeft: 'i-material-symbols-arrow-back-rounded',
+      arrowRight: 'i-material-symbols-arrow-forward-rounded',
+      check: 'i-material-symbols-check-rounded',
+      chevronDown: 'i-material-symbols-keyboard-arrow-down-rounded',
+      chevronLeft: 'i-material-symbols-chevron-left-rounded',
+      chevronRight: 'i-material-symbols-chevron-right-rounded',
+      chevronUp: 'i-material-symbols-keyboard-arrow-up-rounded',
+      close: 'i-material-symbols-close-rounded',
+      ellipsis: 'i-material-symbols-more-horiz-rounded',
+      external: 'i-material-symbols-open-in-new-rounded',
+      loading: 'i-material-symbols-progress-activity',
+      minus: 'i-material-symbols-remove-rounded',
+      plus: 'i-material-symbols-add-rounded',
+      search: 'i-material-symbols-search-rounded'
     },
     pageHero: {
       slots: {

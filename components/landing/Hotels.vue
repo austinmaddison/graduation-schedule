@@ -7,9 +7,11 @@ const props = defineProps<{
 
 const { t } = useI18n()
 
+const topHotels = computed(() => props.hotels.slice(0, 3))
+
 // HotelMap wants absolute image URLs (baseURL-prefixed) and tuple coordinates.
 const mapHotels = computed(() =>
-  props.hotels.map(hotel => ({
+  topHotels.value.map(hotel => ({
     ...hotel,
     image: assetUrl(hotel.image)!,
     coordinates: [hotel.coordinates[0]!, hotel.coordinates[1]!] as [number, number]
@@ -28,51 +30,10 @@ const mapHotels = computed(() =>
     }"
   >
     <ClientOnly>
-      <HotelMap :hotels="mapHotels" />
+      <HotelMap :hotels="mapHotels" class="-mt-10" />
       <template #fallback>
         <div class="h-80 rounded-lg bg-elevated/50" />
       </template>
     </ClientOnly>
-
-    <UPageGrid class="sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-2">
-      <UPageCard
-        v-for="hotel in props.hotels"
-        :key="hotel.id"
-        variant="subtle"
-        :ui="{ container: 'p-0 sm:p-0', body: 'p-4', wrapper: 'gap-2' }"
-      >
-        <template #header>
-          <div class="aspect-video overflow-hidden rounded-t-lg bg-elevated">
-            <img
-              :src="assetUrl(hotel.image)"
-              :alt="hotel.name"
-              class="size-full object-cover"
-              loading="lazy"
-              width="480"
-              height="270"
-            >
-          </div>
-        </template>
-
-        <h3 class="text-sm font-semibold text-highlighted">{{ hotel.name }}</h3>
-        <p class="text-xs text-muted">{{ t('stays.nearCampus') }}</p>
-
-        <template #footer>
-          <UButton
-            :to="hotel.mapsUrl"
-            target="_blank"
-            color="neutral"
-            variant="subtle"
-            size="xs"
-            block
-            :label="t('openInGoogleMaps')"
-          >
-            <template #leading>
-              <UIcon name="logos:google-maps" mode="svg" class="size-3.5" />
-            </template>
-          </UButton>
-        </template>
-      </UPageCard>
-    </UPageGrid>
   </UPageSection>
 </template>

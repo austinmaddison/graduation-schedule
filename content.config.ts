@@ -72,14 +72,12 @@ const pageSchema = z.object({
     family: z.array(z.object({
       name: z.string(),
       role: z.string(),
-      note: z.string().optional(),
-      image: z.string().optional()
+      note: z.string().optional()
     })),
     friends: z.array(z.object({
       name: z.string(),
       role: z.string(),
-      note: z.string().optional(),
-      image: z.string().optional()
+      note: z.string().optional()
     }))
   }),
   faq: z.object({

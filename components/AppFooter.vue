@@ -23,10 +23,11 @@ const alternatePath = computed(() => switchLocalePath(otherLocale.value))
     <template #right>
       <UButton
         :to="alternatePath || localePath('/')"
+        :locale="false"
         color="neutral"
         variant="ghost"
         size="xs"
-        icon="i-lucide-languages"
+        icon="i-material-symbols-translate-rounded"
         :label="t('alternateLanguage')"
       />
     </template>

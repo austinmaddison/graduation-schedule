@@ -1,73 +1,26 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
-
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 
 const otherLocale = computed(() => (locale.value === 'en' ? 'th' : 'en'))
 const alternatePath = computed(() => switchLocalePath(otherLocale.value))
-
-const sections = ['plans', 'hotels', 'restaurants', 'family', 'faq'] as const
-const links = computed<NavigationMenuItem[]>(() =>
-  sections.map(id => ({
-    label: t(`nav.${id}`),
-    to: `${localePath('/')}#${id}`.replace('//', '/')
-  }))
-)
 </script>
 
 <template>
-  <UHeader
-    :ui="{ root: 'bg-default/75 backdrop-blur border-b border-default' }"
-    :toggle="{ color: 'neutral', variant: 'ghost' }"
-  >
-    <template #title>
-      <NuxtLink
-        :to="localePath('/')"
-        class="text-sm font-semibold text-highlighted"
-      >
-        {{ t('headerTitle') }}
-      </NuxtLink>
-    </template>
-
-    <UNavigationMenu
-      :items="links"
-      variant="link"
-      color="neutral"
-      :ui="{ linkLeadingIcon: 'hidden' }"
-    />
-
-    <template #right>
+  <div class="fixed top-2 sm:top-4 mx-auto left-1/2 transform -translate-x-1/2 z-50">
+    <div class="flex min-h-12 items-center gap-1 bg-muted/80 backdrop-blur-sm rounded-full px-2 sm:px-4 border border-muted/50 shadow-lg shadow-neutral-950/5">
       <UButton
         :to="alternatePath || localePath('/')"
+        :locale="false"
         color="neutral"
         variant="ghost"
         size="sm"
-        icon="i-lucide-languages"
+        class="rounded-full"
+        icon="i-material-symbols-translate-rounded"
         :label="t('alternateLanguage')"
-        class="hidden sm:inline-flex"
-      />
-      <UButton
-        :to="alternatePath || localePath('/')"
-        color="neutral"
-        variant="ghost"
-        size="sm"
-        icon="i-lucide-languages"
-        :aria-label="t('alternateLanguage')"
-        class="sm:hidden"
       />
       <ColorModeButton />
-    </template>
-
-    <template #body>
-      <UNavigationMenu
-        :items="links"
-        orientation="vertical"
-        color="neutral"
-        class="-mx-2.5"
-        :ui="{ linkLeadingIcon: 'hidden' }"
-      />
-    </template>
-  </UHeader>
+    </div>
+  </div>
 </template>

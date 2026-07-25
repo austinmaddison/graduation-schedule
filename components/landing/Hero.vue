@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import type { PageDoc } from '~/utils/content'
 
-const { global } = useAppConfig()
+const { t } = useI18n()
 
 const graduationDate = new Date('2026-10-01T00:00:00')
-const graduationPhotos = Array.from(
-  { length: 73 },
-  (_, index) => `/hero/graduation/graduation-${String(index + 1).padStart(2, '0')}.webp`
+// Keep this list in sync with the public assets: several sequence numbers are intentionally absent.
+const graduationPhotoNumbers = [
+  ...Array.from({ length: 41 }, (_, index) => index + 1),
+  ...Array.from({ length: 3 }, (_, index) => index + 43),
+  ...Array.from({ length: 14 }, (_, index) => index + 47),
+  ...Array.from({ length: 9 }, (_, index) => index + 62),
+  73
+]
+const graduationPhotos = graduationPhotoNumbers.map(
+  number => `/hero/graduation/graduation-${String(number).padStart(2, '0')}.webp`
 )
 
 const shuffle = (items: string[]) => {
@@ -44,38 +51,12 @@ defineProps<{
 
 <template>
   <UPageHero
-    :ui="{
-      headline: 'flex items-center justify-center',
-      title: 'text-shadow-md max-w-lg mx-auto',
-      links: 'mt-4 flex-col justify-center items-center'
-    }"
-  >
-    <template #headline>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.1
-        }"
-      >
-        <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-bg"
-          :light="global.picture?.light!"
-          :dark="global.picture?.dark!"
-          :alt="global.picture?.alt!"
-        />
-      </Motion>
-    </template>
-
+      :ui="{
+        headline: 'flex items-center justify-center',
+        title: 'text-shadow-md mx-auto max-w-4xl text-4xl sm:text-5xl lg:text-6xl',
+        links: 'mt-4 flex-col justify-center items-center'
+      }"
+    >
     <template #title>
       <Motion
         :initial="{
@@ -140,7 +121,7 @@ defineProps<{
             color="success"
             variant="ghost"
             class="gap-2"
-            :label="`${monthsUntilGraduation} ${monthsUntilGraduation === 1 ? 'month' : 'months'} left to graduation`"
+            :label="t('graduationCountdown', { count: monthsUntilGraduation }, monthsUntilGraduation)"
           >
             <template #leading>
               <span class="relative flex size-2">
@@ -161,6 +142,7 @@ defineProps<{
     <UMarquee
       pause-on-hover
       class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:120s]"
+      :ui="{ root: 'before:!w-1/5 after:!w-1/5 sm:before:!w-1/3 sm:after:!w-1/3' }"
     >
         <Motion
           v-for="(image, index) in rowOne"
@@ -195,6 +177,7 @@ defineProps<{
       reverse
       pause-on-hover
       class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:120s]"
+      :ui="{ root: 'before:!w-1/5 after:!w-1/5 sm:before:!w-1/3 sm:after:!w-1/3' }"
     >
         <Motion
           v-for="(image, index) in rowTwo"
@@ -211,7 +194,7 @@ defineProps<{
           }"
           :transition="{
             duration: 0.6,
-            delay: index * 0.1
+            delay: (rowTwo.length - index - 1) * 0.1
           }"
         >
           <NuxtImg

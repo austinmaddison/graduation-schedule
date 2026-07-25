@@ -14,6 +14,7 @@ plans:
       - การจราจรไม่ติดมาก
       - ไม่มีการปิดถนน
       - เหนื่อยน้อยกว่า
+      - ร้านอาหารบริเวณใกล้เคียงมีคนแน่นน้อยกว่า
     cons:
       - ยังไม่ได้รับปริญญาบัตรจริง
     rows:
@@ -52,9 +53,9 @@ plans:
       - ร้านอาหารบริเวณใกล้เคียงมีคนแน่น
     rows:
       - time: รอยืนยัน (ช่วงเช้า/บ่าย)
-        activity: ลงทะเบียนและเข้าร่วมพิธีพระราชทานปริญญาบัตร
+        activity: ซ้อมรับปริญญา
         location: หอประชุมมหิดลสิทธาคาร มหาวิทยาลัยมหิดล
-        notes: วันที่และเวลาที่แน่นอนรอยืนยัน
+        notes: คาดว่าจะจัดในช่วงเช้าถึงบ่ายต้น
       - time: รอยืนยัน (ช่วงบ่าย)
         activity: ถ่ายรูปกับเพื่อนร่วมชั้น
         location: หอประชุมมหิดลสิทธาคาร / วิทยาเขตศาลายา
@@ -66,11 +67,11 @@ plans:
       - time: รอยืนยัน (ช่วงบ่าย/เย็น)
         activity: เดินทางไปร้านอาหาร
         location: รอยืนยัน
-        notes: เผื่อเวลาเพิ่มเนื่องจากการจราจร
+        notes: เผื่อเวลาสำหรับการเดินทาง
       - time: รอยืนยัน (ช่วงเย็น)
-        activity: รับประทานอาหารฉลองกับครอบครัว
+        activity: รับประทานอาหารเย็นกับครอบครัว
         location: ร้านอาหารรอยืนยัน
-        notes: ร้านอาหารใกล้เคียงอาจมีคนแน่น
+        notes: รับประทานอาหารร่วมกันหลังวันซ้อม
 hotels:
   - id: salaya-one
     name: Salaya One Hotel
@@ -154,68 +155,49 @@ guests:
     - name: ป้าอี๊ด
       role: guestRoles.aunt
       note: Mom 2
-      image: /images/guests/aunt-eet.jpg
     - name: ลุงกรณ์
       role: guestRoles.uncle
       note: Dad 2
-      image: /images/guests/uncle-korn.jpg
     - name: ป้าต้อย
       role: guestRoles.aunt
       note: Mom 2
-      image: /images/guests/aunt-toi.jpg
     - name: ป้าตุ๊ก
       role: guestRoles.aunt
       note: Wine Aunt
-      image: /images/guests/aunt-took.jpg
     - name: ป้าติ๊ก
       role: guestRoles.aunt
       note: Cool Aunt
-      image: /images/guests/aunt-tick.jpg
     - name: ลุงเพชร
       role: guestRoles.uncle
       note: Cool Uncle
-      image: /images/guests/uncle-pedth.jpg
     - name: ป้าอ้อย
       role: guestRoles.aunt
       note: Mom 2
-      image: /images/guests/aunt-oi.jpg
     - name: ลุงบุญ
       role: guestRoles.uncle
       note: Cool Uncle
-      image: /images/guests/uncle-bui.jpg
     - name: คุณยาย
       role: guestRoles.grandma
-      image: /images/guests/khun-yaiy.jpg
     - name: พี่เน
       role: guestRoles.bigSister
-      image: /images/guests/p-nay.jpg
     - name: พี่ดาร์
       role: guestRoles.mother
-      image: /images/guests/p-dar.jpg
     - name: พี่ภูมิ
       role: guestRoles.bigBrother
-      image: /images/guests/p-poom.jpg
     - name: พี่เฟิร์น
       role: guestRoles.bigSister
-      image: /images/guests/p-fern.jpg
     - name: พี่เกมส์
       role: guestRoles.bigBrother
-      image: /images/guests/p-game.jpg
     - name: พี่ปาล์ม
       role: guestRoles.bigBrother
-      image: /images/guests/p-palm.jpg
     - name: พี่ปลา
       role: guestRoles.bigBrother
-      image: /images/guests/p-plai.jpg
     - name: พี่ดรีม
       role: guestRoles.bigSister
-      image: /images/guests/p-dream.jpg
     - name: คุณวิภารัตน์
       role: guestRoles.mother
-      image: /images/guests/k-wiparat.jpg
     - name: คุณจอห์น
       role: guestRoles.father
-      image: /images/guests/k-john.jpg
   friends:
     - name: บูม
       role: guestRoles.friend
@@ -251,12 +233,8 @@ faq:
     - title: รายละเอียด
       questions:
         - label: การแต่งกายเป็นอย่างไร?
-          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
-        - label: ต้องแจ้งยืนยันการเข้าร่วม (RSVP) ไหม?
-          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+          content: แต่งตัวสบาย ๆ ตามที่คุณเป็นได้เลย
         - label: เรื่องการเดินทางและที่จอดรถเป็นอย่างไร?
-          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+          content: สำหรับแผน B จะมีการปิดถนน จึงไม่สามารถจอดรถภายในมหาวิทยาลัยได้
         - label: ควรเตรียมของขวัญไหม?
-          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
-        - label: พาเด็ก ๆ มาด้วยได้ไหม?
-          content: รอยืนยัน — Austin จะแจ้งอีกครั้งเมื่อใกล้วัน
+          content: เฉพาะถ้าคุณอยากให้

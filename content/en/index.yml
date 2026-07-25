@@ -1,8 +1,161 @@
 title: You are invited to Austin's Graduation!
 description: Join me in October 2026 at Mahidol University in Salaya, Thailand.
-seo:
-  title: Austin's Graduation · Mahidol University
-  description: A bilingual invite for Austin Jetrin Maddison's graduation at Mahidol University, Salaya — plans, hotels, restaurants, and guests.
+faq:
+  title: Frequently asked questions
+  description: A few things guests often ask. More answers will appear here as details firm up.
+  categories:
+    - title: Graduation
+      questions:
+        - label: What degree are you graduating from?
+          content: Computer Science.
+        - label: Do you know the final dates yet?
+          content: Not yet. The final dates and times aren't out because the other university programs haven't closed registration for the graduation ceremony yet. Once Mahidol confirms, this page will be updated.
+    - title: Details
+      questions:
+        - label: What is the dress code?
+          content: Come as you are.
+        - label: What about travel and parking?
+          content: For Plan B, road closures mean guest parking is not available inside the university.
+        - label: Should I bring a gift?
+          content: Only if you want to.
+guests:
+  family:
+    - name: Aunt Eet
+      role: guestRoles.aunt
+      note: Mom 2
+    - name: Uncle Korn
+      role: guestRoles.uncle
+      note: Dad 2
+    - name: Aunt Toi
+      role: guestRoles.aunt
+      note: Mom 2
+    - name: Aunt Took
+      role: guestRoles.aunt
+      note: Wine Aunt
+    - name: Aunt Tick
+      role: guestRoles.aunt
+      note: Cool Aunt
+    - name: Uncle Pedth
+      role: guestRoles.uncle
+      note: Cool Uncle
+    - name: Aunt Oi
+      role: guestRoles.aunt
+      note: Mom 2
+    - name: Uncle Bui
+      role: guestRoles.uncle
+      note: Cool Uncle
+    - name: Khun Yaiy (Grandma)
+      role: guestRoles.grandma
+    - name: P'Nay
+      role: guestRoles.bigSister
+    - name: P'Dar
+      role: guestRoles.mother
+    - name: P'Poom
+      role: guestRoles.bigBrother
+    - name: P'Fern
+      role: guestRoles.bigSister
+    - name: P'Game
+      role: guestRoles.bigBrother
+    - name: P'Palm
+      role: guestRoles.bigBrother
+    - name: P'Plai
+      role: guestRoles.bigBrother
+    - name: P'Dream
+      role: guestRoles.bigSister
+    - name: K'Wiparat (Mom)
+      role: guestRoles.mother
+    - name: K'John (Dad)
+      role: guestRoles.father
+  friends:
+    - name: Bhum
+      role: guestRoles.friend
+    - name: Justin
+      role: guestRoles.friend
+    - name: Gloria
+      role: guestRoles.friend
+    - name: Akari
+      role: guestRoles.friend
+    - name: Appy
+      role: guestRoles.friend
+    - name: Alex
+      role: guestRoles.friend
+    - name: Anish
+      role: guestRoles.friend
+    - name: Karan
+      role: guestRoles.friend
+    - name: Lana
+      role: guestRoles.friend
+hotels:
+  - id: salaya-one
+    name: Salaya One Hotel
+    mapsUrl: https://maps.app.goo.gl/9WK9s6KtiB13umtV9
+    coordinates:
+      - 100.3118697
+      - 13.8012853
+    image: /images/hotels/salaya-one.webp
+  - id: the-palm
+    name: The Palm Hotel
+    mapsUrl: https://maps.app.goo.gl/wdkhbZeXN4UheFuH7
+    coordinates:
+      - 100.328138
+      - 13.8007086
+    image: /images/hotels/the-palm.webp
+  - id: 24-poshtel
+    name: 24 Poshtel Salaya
+    mapsUrl: https://maps.app.goo.gl/QkJU8AhUZ1RdDMyZ9
+    coordinates:
+      - 100.31211
+      - 13.8020133
+    image: /images/hotels/24-poshtel.webp
+  - id: the-time-24
+    name: The Time 24 Hotel
+    mapsUrl: https://maps.app.goo.gl/VGLQuxdBL5NHs3Ej6
+    coordinates:
+      - 100.3275706
+      - 13.8014471
+    image: /images/hotels/the-time-24.jpg
+  - id: miracle-place
+    name: Miracle Place
+    mapsUrl: https://maps.app.goo.gl/ooymG5dfCfSnDCgu5
+    coordinates:
+      - 100.3117771
+      - 13.8016046
+    image: /images/hotels/miracle-place.jpg
+  - id: the-september
+    name: The September Salaya
+    mapsUrl: https://maps.app.goo.gl/tZ44yPp5PceM1vaW6
+    coordinates:
+      - 100.3115152
+      - 13.8000272
+    image: /images/hotels/the-september.jpg
+  - id: tap-salaya
+    name: TAP Salaya
+    mapsUrl: https://maps.app.goo.gl/esuxcZJzDpdf79os6
+    coordinates:
+      - 100.3124351
+      - 13.7972855
+    image: /images/hotels/tap-salaya.webp
+  - id: loft-salaya
+    name: LOFT Salaya
+    mapsUrl: https://maps.app.goo.gl/XUNVfRvjHCvfMohh7
+    coordinates:
+      - 100.3283366
+      - 13.7982481
+    image: /images/hotels/loft-salaya.jpg
+  - id: the-residenz-mb
+    name: The Residenz @ MB
+    mapsUrl: https://maps.app.goo.gl/NNLkBcWFFwMNL4KL6
+    coordinates:
+      - 100.3262992
+      - 13.7971648
+    image: /images/hotels/the-residenz-mb.jpg
+  - id: salaya-pavilion
+    name: Salaya Pavilion Hotel
+    mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
+    coordinates:
+      - 100.3262253
+      - 13.7930217
+    image: /images/hotels/salaya-pavilion.jpg
 plans:
   - id: rehearsal
     letter: A
@@ -14,6 +167,7 @@ plans:
       - Less traffic
       - Roads are not closed
       - Less tiring
+      - Local restaurants are less crowded
     cons:
       - The degree will not yet be in hand
     rows:
@@ -52,9 +206,9 @@ plans:
       - Local restaurants are crowded
     rows:
       - time: TBD (morning/afternoon)
-        activity: Registration and official ceremony
+        activity: Graduation rehearsal
         location: Prince Mahidol Hall, Mahidol University
-        notes: Exact date and time TBD
+        notes: Expected between morning and early afternoon
       - time: TBD (afternoon)
         activity: Photos with classmates
         location: Prince Mahidol Hall / Salaya Campus
@@ -66,64 +220,13 @@ plans:
       - time: TBD (afternoon/evening)
         activity: Travel to restaurant
         location: TBD
-        notes: Allow extra time because of traffic
+        notes: Allow time for traffic
       - time: TBD (evening)
-        activity: Graduation dinner with family
+        activity: Dinner with family
         location: Restaurant TBD
-        notes: Local restaurants may be crowded
-hotels:
-  - id: salaya-one
-    name: Salaya One Hotel
-    mapsUrl: https://maps.app.goo.gl/9WK9s6KtiB13umtV9
-    coordinates: [100.3118697, 13.8012853]
-    image: /images/hotels/salaya-one.webp
-  - id: the-palm
-    name: The Palm Hotel
-    mapsUrl: https://maps.app.goo.gl/wdkhbZeXN4UheFuH7
-    coordinates: [100.328138, 13.8007086]
-    image: /images/hotels/the-palm.webp
-  - id: 24-poshtel
-    name: 24 Poshtel Salaya
-    mapsUrl: https://maps.app.goo.gl/QkJU8AhUZ1RdDMyZ9
-    coordinates: [100.31211, 13.8020133]
-    image: /images/hotels/24-poshtel.webp
-  - id: the-time-24
-    name: The Time 24 Hotel
-    mapsUrl: https://maps.app.goo.gl/VGLQuxdBL5NHs3Ej6
-    coordinates: [100.3275706, 13.8014471]
-    image: /images/hotels/the-time-24.jpg
-  - id: miracle-place
-    name: Miracle Place
-    mapsUrl: https://maps.app.goo.gl/ooymG5dfCfSnDCgu5
-    coordinates: [100.3117771, 13.8016046]
-    image: /images/hotels/miracle-place.jpg
-  - id: the-september
-    name: The September Salaya
-    mapsUrl: https://maps.app.goo.gl/tZ44yPp5PceM1vaW6
-    coordinates: [100.3115152, 13.8000272]
-    image: /images/hotels/the-september.jpg
-  - id: tap-salaya
-    name: TAP Salaya
-    mapsUrl: https://maps.app.goo.gl/esuxcZJzDpdf79os6
-    coordinates: [100.3124351, 13.7972855]
-    image: /images/hotels/tap-salaya.webp
-  - id: loft-salaya
-    name: LOFT Salaya
-    mapsUrl: https://maps.app.goo.gl/XUNVfRvjHCvfMohh7
-    coordinates: [100.3283366, 13.7982481]
-    image: /images/hotels/loft-salaya.jpg
-  - id: the-residenz-mb
-    name: The Residenz @ MB
-    mapsUrl: https://maps.app.goo.gl/NNLkBcWFFwMNL4KL6
-    coordinates: [100.3262992, 13.7971648]
-    image: /images/hotels/the-residenz-mb.jpg
-  - id: salaya-pavilion
-    name: Salaya Pavilion Hotel
-    mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
-    coordinates: [100.3262253, 13.7930217]
-    image: /images/hotels/salaya-pavilion.jpg
+        notes: Family dinner after rehearsal
 restaurants:
-  note: The family dinner spot isn't chosen yet — we'll pick a nearby option closer to the date. These are just suggestions, not committed.
+  note: The family dinner spot isn't chosen yet, we'll pick a nearby option closer to the date. These are just suggestions, not committed.
   suggestions:
     - id: music-square
       name: Music Square
@@ -149,114 +252,6 @@ restaurants:
       name: Alt.242
       area: Mahidol University, Salaya
       mapsUrl: https://www.google.com/maps/search/?api=1&query=Alt.242%20Mahidol%20University%20Salaya
-guests:
-  family:
-    - name: Aunt Eet
-      role: guestRoles.aunt
-      note: Mom 2
-      image: /images/guests/aunt-eet.jpg
-    - name: Uncle Korn
-      role: guestRoles.uncle
-      note: Dad 2
-      image: /images/guests/uncle-korn.jpg
-    - name: Aunt Toi
-      role: guestRoles.aunt
-      note: Mom 2
-      image: /images/guests/aunt-toi.jpg
-    - name: Aunt Took
-      role: guestRoles.aunt
-      note: Wine Aunt
-      image: /images/guests/aunt-took.jpg
-    - name: Aunt Tick
-      role: guestRoles.aunt
-      note: Cool Aunt
-      image: /images/guests/aunt-tick.jpg
-    - name: Uncle Pedth
-      role: guestRoles.uncle
-      note: Cool Uncle
-      image: /images/guests/uncle-pedth.jpg
-    - name: Aunt Oi
-      role: guestRoles.aunt
-      note: Mom 2
-      image: /images/guests/aunt-oi.jpg
-    - name: Uncle Bui
-      role: guestRoles.uncle
-      note: Cool Uncle
-      image: /images/guests/uncle-bui.jpg
-    - name: Khun Yaiy (Grandma)
-      role: guestRoles.grandma
-      image: /images/guests/khun-yaiy.jpg
-    - name: P'Nay
-      role: guestRoles.bigSister
-      image: /images/guests/p-nay.jpg
-    - name: P'Dar
-      role: guestRoles.mother
-      image: /images/guests/p-dar.jpg
-    - name: P'Poom
-      role: guestRoles.bigBrother
-      image: /images/guests/p-poom.jpg
-    - name: P'Fern
-      role: guestRoles.bigSister
-      image: /images/guests/p-fern.jpg
-    - name: P'Game
-      role: guestRoles.bigBrother
-      image: /images/guests/p-game.jpg
-    - name: P'Palm
-      role: guestRoles.bigBrother
-      image: /images/guests/p-palm.jpg
-    - name: P'Plai
-      role: guestRoles.bigBrother
-      image: /images/guests/p-plai.jpg
-    - name: P'Dream
-      role: guestRoles.bigSister
-      image: /images/guests/p-dream.jpg
-    - name: K'Wiparat (Mom)
-      role: guestRoles.mother
-      image: /images/guests/k-wiparat.jpg
-    - name: K'John (Dad)
-      role: guestRoles.father
-      image: /images/guests/k-john.jpg
-  friends:
-    - name: Bhum
-      role: guestRoles.friend
-    - name: Justin
-      role: guestRoles.friend
-    - name: Gloria
-      role: guestRoles.friend
-    - name: Akari
-      role: guestRoles.friend
-    - name: Appy
-      role: guestRoles.friend
-    - name: Alex
-      role: guestRoles.friend
-    - name: Anish
-      role: guestRoles.friend
-    - name: Karan
-      role: guestRoles.friend
-    - name: Lana
-      role: guestRoles.friend
-faq:
-  title: Frequently asked questions
-  description: A few things guests often ask. More answers will appear here as details firm up.
-  categories:
-    - title: Graduation
-      questions:
-        - label: What degree are you graduating from?
-          content: Computer Science.
-        - label: Do you know the final dates yet?
-          content: >-
-            Not yet. The final dates and times aren't out because the other university
-            programs haven't closed registration for the graduation ceremony yet. Once
-            Mahidol confirms, this page will be updated.
-    - title: Details
-      questions:
-        - label: What is the dress code?
-          content: TBD — Austin will confirm this closer to the date.
-        - label: Do I need to RSVP?
-          content: TBD — Austin will confirm this closer to the date.
-        - label: What about travel and parking?
-          content: TBD — Austin will confirm this closer to the date.
-        - label: Should I bring a gift?
-          content: TBD — Austin will confirm this closer to the date.
-        - label: Can I bring kids?
-          content: TBD — Austin will confirm this closer to the date.
+seo:
+  title: Austin's Graduation · Mahidol University
+  description: A bilingual invite for Austin Jetrin Maddison's graduation at Mahidol University, Salaya — plans, hotels, restaurants, and guests.

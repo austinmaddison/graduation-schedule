@@ -40,7 +40,6 @@ export interface Guest {
   name: string
   role: string
   note?: string
-  image?: string
 }
 
 export interface FaqCategory {
