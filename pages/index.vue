@@ -22,11 +22,13 @@ if (!page.value) {
 
 const doc = computed(() => page.value as unknown as PageDoc)
 
+const { app: { baseURL } } = useRuntimeConfig()
+
 const graduationPhotos = [
-  '/images/me/graduated/austin.png',
-  '/images/me/graduated/image.png',
-  '/images/me/graduated/image copy.png'
-]
+  'austin.png',
+  'image.png',
+  'image copy.png'
+].map(image => `${baseURL}images/me/graduated/${image}`)
 
 useSeoMeta({
   title: () => doc.value.seo?.title || doc.value.title,
