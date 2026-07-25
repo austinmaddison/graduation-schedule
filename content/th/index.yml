@@ -152,70 +152,70 @@ restaurants:
       mapsUrl: https://www.google.com/maps/search/?api=1&query=Alt.242%20Mahidol%20University%20Salaya
 guests:
   family:
-    - name: ป้าอี๊ด
+    - name: Aunt Eet
       role: guestRoles.aunt
       note: Mom 2
-    - name: ลุงกรณ์
+    - name: Uncle Korn
       role: guestRoles.uncle
       note: Dad 2
-    - name: ป้าต้อย
+    - name: Aunt Toi
       role: guestRoles.aunt
       note: Mom 2
-    - name: ป้าตุ๊ก
+    - name: Aunt Took
       role: guestRoles.aunt
       note: Wine Aunt
-    - name: ป้าติ๊ก
+    - name: Aunt Tick
       role: guestRoles.aunt
       note: Cool Aunt
-    - name: ลุงเพชร
+    - name: Uncle Pedth
       role: guestRoles.uncle
       note: Cool Uncle
-    - name: ป้าอ้อย
+    - name: Aunt Oi
       role: guestRoles.aunt
       note: Mom 2
-    - name: ลุงบุญ
+    - name: Uncle Bui
       role: guestRoles.uncle
       note: Cool Uncle
-    - name: คุณยาย
+    - name: Khun Yaiy (Grandma)
       role: guestRoles.grandma
-    - name: พี่เน
+    - name: P'Nay
       role: guestRoles.bigSister
-    - name: พี่ดาร์
+    - name: P'Dar
       role: guestRoles.mother
-    - name: พี่ภูมิ
+    - name: P'Poom
       role: guestRoles.bigBrother
-    - name: พี่เฟิร์น
+    - name: P'Fern
       role: guestRoles.bigSister
-    - name: พี่เกมส์
+    - name: P'Game
       role: guestRoles.bigBrother
-    - name: พี่ปาล์ม
+    - name: P'Palm
       role: guestRoles.bigBrother
-    - name: พี่ปลา
+    - name: P'Plai
       role: guestRoles.bigBrother
-    - name: พี่ดรีม
+    - name: P'Dream
       role: guestRoles.bigSister
-    - name: คุณวิภารัตน์
+    - name: K'Wiparat (Mom)
       role: guestRoles.mother
-    - name: คุณจอห์น
+    - name: K'John (Dad)
       role: guestRoles.father
   friends:
-    - name: บูม
+    - name: Bhum
       role: guestRoles.friend
-    - name: จัสติน
+    - name: Justin
       role: guestRoles.friend
-    - name: กลอเรีย
+    - name: Gloria
       role: guestRoles.friend
-    - name: อาการิ
+    - name: Akari
       role: guestRoles.friend
-    - name: แอปปี้
+    - name: Appy
       role: guestRoles.friend
-    - name: อเล็กซ์
+    - name: Alex
       role: guestRoles.friend
-    - name: อนิช
+    - name: Anish
       role: guestRoles.friend
-    - name: คารัน
+    - name: Karan
       role: guestRoles.friend
-    - name: ลาน่า
+    - name: Lana
       role: guestRoles.friend
 faq:
   title: คำถามที่พบบ่อย

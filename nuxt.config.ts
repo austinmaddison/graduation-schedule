@@ -6,8 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxt/ui',
-    '@vueuse/nuxt',
-    'nuxt-og-image',
     'motion-v/nuxt',
     'nuxt-studio',
   ],
@@ -21,10 +19,6 @@ export default defineNuxtConfig({
     experimental: {
       sqliteConnector: 'native',
     },
-  },
-
-  ogImage: {
-    zeroRuntime: true,
   },
 
   app: {

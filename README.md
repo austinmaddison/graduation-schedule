@@ -24,14 +24,14 @@ pnpm dev
 pnpm generate
 ```
 
-The generated site is written to `.output/public`. The production build includes the Inter and Noto Sans Thai Looped font assets, so GitHub Pages can serve the site without external font requests.
+The generated site is written to `.output/public`. The production build includes the Inter and Noto Sans Thai font assets, so GitHub Pages can serve the site without external font requests.
 
 ## GitHub Pages
 
 1. Push this folder to a GitHub repository with the default branch named `main`.
 2. In GitHub, open **Settings > Pages**.
 3. Set **Build and deployment > Source** to **GitHub Actions**.
-4. Push to `main`. The included workflow runs `npm run generate` and deploys `.output/public` to GitHub Pages.
+4. Push to `main`. The included workflow runs `pnpm generate` and deploys `.output/public` to GitHub Pages.
 
 For a project page such as `https://owner.github.io/graduation-schedule/`, the workflow sets:
 
