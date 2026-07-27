@@ -8,5 +8,7 @@
       <slot />
     </UContainer>
     <AppFooter />
+    <div class="h-20 sm:hidden" aria-hidden="true" />
+    <AppMobileNav />
   </div>
 </template>

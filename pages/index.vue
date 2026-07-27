@@ -47,11 +47,15 @@ useHead(() => ({
     <LandingHero :page="doc" />
 
     <UPage>
+      <section id="plans" class="scroll-mt-20">
+        <LandingPlans :plans="doc.plans" />
+      </section>
+
       <UPageSection
         :title="$t('graduationDegree')"
         class="py-10 sm:py-14"
         :ui="{
-          container: 'px-0 gap-6',
+          container: 'px-0 pt-0! gap-6',
           title: 'text-left text-xl sm:text-2xl font-medium'
         }"
       >
@@ -74,12 +78,6 @@ useHead(() => ({
         </UCarousel>
       </UPageSection>
 
-
-      <section id="plans" class="scroll-mt-20">
-        <LandingPlans :plans="doc.plans" />
-      </section>
-
-
       <section id="hotels" class="scroll-mt-20">
         <LandingHotels :hotels="doc.hotels" />
       </section>
@@ -94,10 +92,6 @@ useHead(() => ({
           :title="$t('guestList')"
           :kicker="$t('guestKicker')"
         />
-      </section>
-
-      <section id="faq" class="scroll-mt-20">
-        <LandingFAQ :faq="doc.faq" />
       </section>
     </UPage>
   </div>

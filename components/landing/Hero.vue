@@ -1,9 +1,63 @@
 <script setup lang="ts">
+import NumberFlow from '@number-flow/vue'
 import type { PageDoc } from '~/utils/content'
 
 const { t } = useI18n()
 
-const graduationDate = new Date('2026-10-01T00:00:00')
+const props = defineProps<{
+  page: PageDoc
+}>()
+
+const primaryPlan = computed(() => props.page.plans[0])
+const { daysRemaining } = useDaysUntil(() => primaryPlan.value?.startsAt)
+
+// NumberFlow only animates on change, so render 0 first and hand it the real
+// count once mounted.
+const displayDays = ref(0)
+
+watch(daysRemaining, (value) => {
+  if (value !== undefined) displayDays.value = value
+})
+
+onMounted(() => {
+  requestAnimationFrame(() => {
+    if (daysRemaining.value !== undefined) displayDays.value = daysRemaining.value
+  })
+})
+
+// All-day calendar entry on the plan date (Google Calendar end date is exclusive).
+const dayStamp = (isoDate: string, addDays = 0) => {
+  const [year, month, day] = isoDate.slice(0, 10).split('-').map(Number)
+  if (!year || !month || !day) return undefined
+  return new Date(Date.UTC(year, month - 1, day + addDays))
+    .toISOString()
+    .slice(0, 10)
+    .replace(/-/g, '')
+}
+
+const calendarUrl = computed(() => {
+  const plan = primaryPlan.value
+  if (!plan?.startsAt) return undefined
+
+  const start = dayStamp(plan.startsAt)
+  const end = dayStamp(plan.startsAt, 1)
+  if (!start || !end) return undefined
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: `${props.page.title} — ${plan.title}`,
+    dates: `${start}/${end}`,
+    location: t('heroLocation'),
+    details: props.page.description
+  })
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`
+})
+
+const locationUrl = computed(
+  () => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t('heroLocation'))}`
+)
+
 // Keep this list in sync with the public assets: several sequence numbers are intentionally absent.
 const graduationPhotoNumbers = [
   ...Array.from({ length: 41 }, (_, index) => index + 1),
@@ -33,20 +87,6 @@ onMounted(() => {
   rowOne.value = shuffle(graduationPhotos)
   rowTwo.value = shuffle(graduationPhotos)
 })
-
-const monthsUntilGraduation = computed(() => {
-  const today = new Date()
-  return Math.max(
-    0,
-    (graduationDate.getFullYear() - today.getFullYear()) * 12
-      + graduationDate.getMonth()
-      - today.getMonth()
-  )
-})
-
-defineProps<{
-  page: PageDoc
-}>()
 </script>
 
 <template>
@@ -74,28 +114,19 @@ defineProps<{
           delay: 0.1
         }"
       >
-        {{ page.title }}
-      </Motion>
-    </template>
-
-    <template #description>
-      <Motion
-        :initial="{
-          scale: 1.1,
-          opacity: 0,
-          filter: 'blur(20px)'
-        }"
-        :animate="{
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)'
-        }"
-        :transition="{
-          duration: 0.6,
-          delay: 0.3
-        }"
-      >
-        {{ page.description }}
+        <span class="flex flex-col items-center">
+          <span class="text-6xl leading-[1.05] font-bold sm:text-7xl lg:text-8xl">
+            <span v-if="t('heroCountdownPrefix')" class="me-2">{{ t('heroCountdownPrefix') }}</span>
+            <NumberFlow
+              :value="displayDays"
+              :format="{ useGrouping: false }"
+              will-change
+              class="tabular-nums"
+            />
+            <span class="ms-2">{{ t('heroCountdownUnit') }}</span>
+          </span>
+          <span>{{ t('heroCountdownTail') }}</span>
+        </span>
       </Motion>
     </template>
 
@@ -116,27 +147,48 @@ defineProps<{
           delay: 0.5
         }"
       >
-        <div class="flex items-center gap-2">
+        <div v-if="primaryPlan" class="flex flex-col items-center gap-6">
+          <div class="flex flex-col items-center gap-1">
+            <UButton
+              :to="calendarUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="neutral"
+              variant="ghost"
+              size="xl"
+              class="rounded-full text-base sm:text-lg"
+              icon="i-material-symbols-calendar-month-rounded"
+              :ui="{ leadingIcon: 'size-5 sm:size-6' }"
+              :label="primaryPlan.date"
+              :aria-label="`${primaryPlan.date} — ${t('addToCalendar')}`"
+            />
+            <UButton
+              :to="locationUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="neutral"
+              variant="ghost"
+              size="xl"
+              class="rounded-full text-base text-muted sm:text-lg"
+              icon="i-material-symbols-location-on-rounded"
+              :ui="{ leadingIcon: 'size-5 sm:size-6' }"
+              :label="t('heroLocation')"
+              :aria-label="`${t('heroLocation')} — ${t('openInGoogleMaps')}`"
+            />
+          </div>
+
           <UButton
-            color="success"
-            variant="ghost"
-            class="gap-2"
-            :label="t('graduationCountdown', { count: monthsUntilGraduation }, monthsUntilGraduation)"
-          >
-            <template #leading>
-              <span class="relative flex size-2">
-                <span
-                  class="absolute inline-flex size-full rounded-full bg-success opacity-75 animate-ping"
-                />
-                <span
-                  class="relative inline-flex size-2 scale-90 rounded-full bg-success"
-                />
-              </span>
-            </template>
-          </UButton>
+            to="#plans"
+            color="neutral"
+            variant="solid"
+            size="xl"
+            class="rounded-full text-base sm:text-lg"
+            trailing-icon="i-material-symbols-arrow-downward-rounded"
+            :ui="{ trailingIcon: 'size-5 sm:size-6' }"
+            :label="t('seeSchedule')"
+          />
         </div>
       </Motion>
-
     </template>
 
     <UMarquee

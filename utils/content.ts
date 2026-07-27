@@ -10,13 +10,10 @@ export interface PlanRow {
 
 export interface Plan {
   id: string
-  letter: string
   title: string
   date: string
+  startsAt: string
   tone: 'success' | 'contrast'
-  badge: string
-  pros: string[]
-  cons: string[]
   rows: PlanRow[]
 }
 
@@ -42,11 +39,6 @@ export interface Guest {
   note?: string
 }
 
-export interface FaqCategory {
-  title: string
-  questions: { label: string, content: string }[]
-}
-
 export interface PageDoc {
   title: string
   description: string
@@ -55,7 +47,6 @@ export interface PageDoc {
   hotels: Hotel[]
   restaurants: { note: string, suggestions: RestaurantSuggestion[] }
   guests: { family: Guest[], friends: Guest[] }
-  faq: { title: string, description: string, categories: FaqCategory[] }
 }
 
 // Prefix a public asset path with the deploy baseURL (github-pages subpath safe).

@@ -21,6 +21,7 @@
     "@iconify-json/logos": "^1.2.11",
     "@iconify-json/lucide": "^1.2.119",
     "@iconify-json/material-symbols": "^1.2.87",
+    "@number-flow/vue": "^0.5.2",
     "@nuxt/content": "^3.15.2",
     "@nuxt/icon": "^2.3.1",
     "@nuxt/image": "^2.0.0",

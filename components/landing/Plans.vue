@@ -34,38 +34,24 @@ const timelineItems = (plan: Plan): PlanTimelineItem[] =>
 
 <template>
   <UPageSection
-    :title="t('plans')"
-    :description="t('planPreferencePrompt')"
     :ui="{
-      container: 'px-0 pt-0! gap-6',
-      title: 'text-left text-xl sm:text-2xl font-medium',
-      description: 'text-left mt-2 text-sm text-muted'
+      container: 'px-0 pt-0! gap-6'
     }"
   >
-    <div class="grid gap-6 lg:grid-cols-2 items-start">
+    <div class="space-y-6">
       <UPageCard
         v-for="plan in props.plans"
         :key="plan.id"
         variant="subtle"
-        :highlight="plan.tone === 'success'"
-        :highlight-color="plan.tone === 'success' ? 'success' : 'primary'"
         :ui="{ container: 'gap-4', body: 'flex flex-col gap-6' }"
       >
         <template #header>
           <div class="flex items-start gap-4">
             <div class="min-w-0">
-              <UBadge
-                :color="plan.tone === 'success' ? 'success' : 'primary'"
-                variant="solid"
-                size="lg"
-                class="mb-2 uppercase tracking-wide"
-              >
-                {{ t('optionLabel') }} {{ plan.letter }}
-              </UBadge>
-              <h3 class="text-xl font-bold text-highlighted sm:text-2xl">{{ plan.title }}</h3>
-              <div class="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted">
-                <span class="inline-flex items-center gap-1">
-                  <UIcon name="i-material-symbols-calendar-month-rounded" class="size-4" />
+              <h3 class="text-2xl font-bold text-highlighted sm:text-3xl">{{ plan.title }}</h3>
+              <div class="mt-1.5 flex flex-wrap items-center gap-2 text-base text-muted sm:text-lg">
+                <span class="inline-flex items-center gap-1.5">
+                  <UIcon name="i-material-symbols-calendar-month-rounded" class="size-5" />
                   {{ plan.date }}
                 </span>
               </div>
@@ -73,52 +59,22 @@ const timelineItems = (plan: Plan): PlanTimelineItem[] =>
           </div>
         </template>
 
-        <div class="grid gap-4 border-y border-default py-4 sm:grid-cols-2">
-          <div>
-            <h4 class="mb-2 flex items-center gap-1.5 text-sm font-medium text-highlighted">
-              <UIcon name="i-material-symbols-check-circle-rounded" class="size-4 text-success" />
-              {{ t('pros') }}
-            </h4>
-            <ul class="space-y-1.5">
-              <li
-                v-for="item in plan.pros"
-                :key="item"
-                class="flex items-start gap-2 text-sm text-muted"
-              >
-                <UIcon name="i-material-symbols-check-rounded" class="mt-0.5 size-4 shrink-0 text-success" />
-                <span>{{ item }}</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="mb-2 flex items-center gap-1.5 text-sm font-medium text-highlighted">
-              <UIcon name="i-material-symbols-do-not-disturb-on-rounded" class="size-4 text-muted" />
-              {{ t('cons') }}
-            </h4>
-            <ul class="space-y-1.5">
-              <li
-                v-for="item in plan.cons"
-                :key="item"
-                class="flex items-start gap-2 text-sm text-muted"
-              >
-                <UIcon name="i-material-symbols-remove-rounded" class="mt-0.5 size-4 shrink-0 text-dimmed" />
-                <span>{{ item }}</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div>
-          <h4 class="mb-3 text-sm font-medium text-highlighted">{{ t('timeline') }}</h4>
+          <h4 class="mb-4 text-base font-medium text-highlighted sm:text-lg">{{ t('timeline') }}</h4>
           <UTimeline
             :items="timelineItems(plan)"
-            :color="plan.tone === 'success' ? 'success' : 'primary'"
-            size="lg"
-            :ui="{ date: 'text-xs', title: 'text-sm', description: 'text-sm' }"
+            color="neutral"
+            size="xl"
+            :ui="{
+              indicator: 'bg-inverted text-inverted',
+              separator: 'bg-inverted',
+              date: 'text-sm',
+              title: 'text-base sm:text-lg',
+              description: 'text-base'
+            }"
           >
             <template #description="{ item }">
-              <div class="space-y-1">
+              <div class="space-y-1.5">
                 <p class="text-muted">{{ (item as PlanTimelineItem).location }}</p>
                 <a
                   v-if="(item as PlanTimelineItem).mapsUrl"
@@ -127,18 +83,15 @@ const timelineItems = (plan: Plan): PlanTimelineItem[] =>
                   rel="noopener noreferrer"
                   class="inline-flex items-center gap-1.5 text-primary hover:underline"
                 >
-                  <UIcon name="logos:google-maps" mode="svg" class="size-3.5" />
+                  <UIcon name="logos:google-maps" mode="svg" class="size-4" />
                   {{ t('openInGoogleMaps') }}
                 </a>
-                <p class="text-xs text-dimmed">{{ (item as PlanTimelineItem).notes }}</p>
+                <p class="text-sm text-dimmed">{{ (item as PlanTimelineItem).notes }}</p>
               </div>
             </template>
           </UTimeline>
         </div>
       </UPageCard>
     </div>
-
-    <UniversityLocationCard />
-
   </UPageSection>
 </template>

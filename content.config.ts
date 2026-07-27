@@ -8,7 +8,7 @@ const rowSchema = z.object({
 })
 
 // One localized page doc per locale (content/en/index.yml, content/th/index.yml):
-// hero title/description + plans, hotels, restaurants, guests, faq.
+// hero title/description + plans, hotels, restaurants, guests.
 const pageSchema = z.object({
   title: z.string(),
   description: z.string(),
@@ -18,13 +18,10 @@ const pageSchema = z.object({
   }).optional(),
   plans: z.array(z.object({
     id: z.string(),
-    letter: z.string(),
     title: z.string(),
     date: z.string(),
+    startsAt: z.string().datetime({ offset: true }),
     tone: z.enum(['success', 'contrast']),
-    badge: z.string(),
-    pros: z.array(z.string()),
-    cons: z.array(z.string()),
     rows: z.array(rowSchema)
   })),
   hotels: z.array(z.object({
@@ -54,17 +51,6 @@ const pageSchema = z.object({
       name: z.string(),
       role: z.string(),
       note: z.string().optional()
-    }))
-  }),
-  faq: z.object({
-    title: z.string(),
-    description: z.string(),
-    categories: z.array(z.object({
-      title: z.string().nonempty(),
-      questions: z.array(z.object({
-        label: z.string().nonempty(),
-        content: z.string().nonempty()
-      }))
     }))
   })
 })

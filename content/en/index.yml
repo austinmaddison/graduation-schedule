@@ -1,23 +1,5 @@
 title: You are invited to Austin's Graduation!
 description: Join me in October 2026 at Mahidol University in Salaya, Thailand.
-faq:
-  title: Frequently asked questions
-  description: A few things guests often ask. More answers will appear here as details firm up.
-  categories:
-    - title: Graduation
-      questions:
-        - label: What degree are you graduating from?
-          content: Computer Science.
-        - label: Do you know the final dates yet?
-          content: Not yet. The final dates and times aren't out because the other university programs haven't closed registration for the graduation ceremony yet. Once Mahidol confirms, this page will be updated.
-    - title: Details
-      questions:
-        - label: What is the dress code?
-          content: Come as you are.
-        - label: What about travel and parking?
-          content: For Plan B, road closures mean guest parking is not available inside the university.
-        - label: Should I bring a gift?
-          content: Only if you want to.
 guests:
   family:
     - name: Aunt Eet
@@ -158,55 +140,13 @@ hotels:
     image: /images/hotels/salaya-pavilion.jpg
 plans:
   - id: rehearsal
-    letter: A
-    title: Rehearsal Day
+    title: Day Schedule
     date: Saturday, 3 October 2026
-    tone: success
-    badge: Easier logistics
-    pros:
-      - Less traffic
-      - Roads are not closed
-      - Less tiring
-      - Local restaurants are less crowded
-    cons:
-      - The degree will not yet be in hand
+    startsAt: 2026-10-03T00:00:00+07:00
+    tone: contrast
     rows:
       - time: TBD (morning/afternoon)
         activity: Graduation rehearsal
-        location: Prince Mahidol Hall, Mahidol University
-        notes: Expected between morning and early afternoon
-      - time: TBD (afternoon)
-        activity: Photos with classmates
-        location: Prince Mahidol Hall / Salaya Campus
-        notes: Class and group photos
-      - time: TBD (afternoon)
-        activity: Photos with family
-        location: Prince Mahidol Hall / Salaya Campus
-        notes: Family portraits and individual photos
-      - time: TBD (afternoon/evening)
-        activity: Travel to restaurant
-        location: TBD
-        notes: Allow time for traffic
-      - time: TBD (evening)
-        activity: Dinner with family
-        location: Restaurant TBD
-        notes: Family dinner after rehearsal
-  - id: ceremony
-    letter: B
-    title: Graduation Ceremony
-    date: 5 or 6 October 2026
-    tone: contrast
-    badge: Official day
-    pros:
-      - Degree in hand
-    cons:
-      - More traffic
-      - People might accidentally arrive late
-      - More tiring
-      - Local restaurants are crowded
-    rows:
-      - time: TBD (morning/afternoon)
-        activity: Graduation ceremony
         location: Prince Mahidol Hall, Mahidol University
         notes: Expected between morning and early afternoon
       - time: TBD (afternoon)
