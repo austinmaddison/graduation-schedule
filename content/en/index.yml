@@ -145,24 +145,20 @@ plans:
     startsAt: 2026-10-03T00:00:00+07:00
     tone: contrast
     rows:
-      - time: TBD (morning/afternoon)
+      - time: 1:30 PM
         activity: Graduation rehearsal
         location: Prince Mahidol Hall, Mahidol University
-        notes: Expected between morning and early afternoon
-      - time: TBD (afternoon)
-        activity: Photos with classmates
-        location: Prince Mahidol Hall / Salaya Campus
-        notes: Class and group photos
-      - time: TBD (afternoon)
+        notes: Release time to be confirmed
+      - time: Afternoon (after rehearsal release)
         activity: Photos with family
         location: Prince Mahidol Hall / Salaya Campus
-        notes: Family portraits and individual photos
-      - time: TBD (afternoon/evening)
+        notes: Family portraits and individual photos after release from rehearsal
+      - time: 5:30 PM
         activity: Travel to restaurant
         location: Say Hay Restaurant
         notes: Allow time to travel from the Salaya campus
         mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
-      - time: TBD (evening)
+      - time: 6:00 PM
         activity: Dinner with family
         location: Say Hay Restaurant
         notes: Family dinner after the graduation rehearsal
