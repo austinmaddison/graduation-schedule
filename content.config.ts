@@ -4,7 +4,8 @@ const rowSchema = z.object({
   time: z.string(),
   activity: z.string(),
   location: z.string(),
-  notes: z.string()
+  notes: z.string(),
+  mapsUrl: z.string().optional()
 })
 
 // One localized page doc per locale (content/en/index.yml, content/th/index.yml):
@@ -33,13 +34,19 @@ const pageSchema = z.object({
   })),
   restaurants: z.object({
     note: z.string(),
-    suggestions: z.array(z.object({
+    selected: z.object({
       id: z.string(),
       name: z.string(),
-      area: z.string(),
+      address: z.string(),
       mapsUrl: z.string(),
-      image: z.string().optional()
-    }))
+      coordinates: z.array(z.number()),
+      photoCreditUrl: z.string(),
+      photos: z.array(z.object({
+        src: z.string(),
+        alt: z.string(),
+        caption: z.string()
+      }))
+    })
   }),
   guests: z.object({
     family: z.array(z.object({

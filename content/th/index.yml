@@ -24,12 +24,14 @@ plans:
         notes: ถ่ายรูปครอบครัวและรูปเดี่ยว
       - time: รอยืนยัน (ช่วงบ่าย/เย็น)
         activity: เดินทางไปร้านอาหาร
-        location: รอยืนยัน
-        notes: เผื่อเวลาสำหรับการเดินทาง
+        location: Say Hay Restaurant
+        notes: เผื่อเวลาเดินทางจากวิทยาเขตศาลายา
+        mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
       - time: รอยืนยัน (ช่วงเย็น)
         activity: รับประทานอาหารเย็นกับครอบครัว
-        location: ร้านอาหารรอยืนยัน
-        notes: รับประทานอาหารร่วมกันหลังวันซ้อม
+        location: Say Hay Restaurant
+        notes: รับประทานอาหารร่วมกันหลังซ้อมรับปริญญา
+        mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
 hotels:
   - id: salaya-one
     name: Salaya One Hotel
@@ -82,32 +84,24 @@ hotels:
     coordinates: [100.3262253, 13.7930217]
     image: /images/hotels/salaya-pavilion.jpg
 restaurants:
-  note: ร้านอาหารสำหรับมื้อเย็นของครอบครัวยังไม่ได้เลือก เราจะเลือกร้านใกล้เคียงอีกครั้งเมื่อใกล้วันรับปริญญา รายการนี้เป็นเพียงคำแนะนำ ยังไม่ได้ยืนยัน
-  suggestions:
-    - id: music-square
-      name: Music Square
-      area: วิทยาลัยดุริยางคศิลป์ มหาวิทยาลัยมหิดล
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Music%20Square%20College%20of%20Music%20Mahidol%20University%20Salaya
-    - id: salaya-pavilion
-      name: Salaya Pavilion
-      area: วิทยาลัยนานาชาติ มหาวิทยาลัยมหิดล
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
-    - id: herb-garden
-      name: Herb Garden
-      area: โรงแรมศาลายาพาวิลเลียน
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Herb%20Garden%20Salaya%20Pavilion%20Hotel
-    - id: princess-cafe
-      name: Princess Cafe
-      area: มหาวิทยาลัยมหิดล ศาลายา
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Princess%20Cafe%20Mahidol%20University%20Salaya
-    - id: pizza-ahmuay
-      name: Pizza Ah Muay
-      area: ตรงข้ามประตู 4 มหาวิทยาลัยมหิดล
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Pizza%20Ah%20Muay%20Mahidol%20University%20Gate%204
-    - id: alt-242
-      name: Alt.242
-      area: มหาวิทยาลัยมหิดล ศาลายา
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Alt.242%20Mahidol%20University%20Salaya
+  note: มื้อเย็นของครอบครัวจะจัดที่ร้าน Say Hay Restaurant หลังซ้อมรับปริญญา
+  selected:
+    id: say-hay
+    name: Say Hay Restaurant ร้านอาหารเซย์เฮย์
+    address: 12 ตำบลหอมเกร็ด อำเภอสามพราน จังหวัดนครปฐม 73110
+    mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
+    coordinates: [100.2332878, 13.7839376]
+    photoCreditUrl: https://www.wongnai.com/articles/say-hay-cafe-cuisine
+    photos:
+      - src: /images/restaurants/say-hay-pond-bridge.jpg
+        alt: สะพานสีแดงที่ทอดไปยังร้าน Say Hay Restaurant ริมบ่อน้ำ
+        caption: บรรยากาศบริเวณร้านริมบ่อน้ำ
+      - src: /images/restaurants/say-hay-food.jpg
+        alt: เมนูหมูซอสเห็ดเสิร์ฟพร้อมผัก
+        caption: เมนูอาหารของทางร้าน
+      - src: /images/restaurants/say-hay-melon-cake.jpg
+        alt: เค้กเมลอนและเครื่องดื่มเมลอนของร้าน Say Hay
+        caption: เค้กเมลอนและเครื่องดื่ม
 guests:
   family:
     - name: Aunt Eet

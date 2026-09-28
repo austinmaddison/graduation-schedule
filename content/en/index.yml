@@ -159,39 +159,33 @@ plans:
         notes: Family portraits and individual photos
       - time: TBD (afternoon/evening)
         activity: Travel to restaurant
-        location: TBD
-        notes: Allow time for traffic
+        location: Say Hay Restaurant
+        notes: Allow time to travel from the Salaya campus
+        mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
       - time: TBD (evening)
         activity: Dinner with family
-        location: Restaurant TBD
-        notes: Family dinner after rehearsal
+        location: Say Hay Restaurant
+        notes: Family dinner after the graduation rehearsal
+        mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
 restaurants:
-  note: The family dinner spot isn't chosen yet, we'll pick a nearby option closer to the date. These are just suggestions, not committed.
-  suggestions:
-    - id: music-square
-      name: Music Square
-      area: College of Music, Mahidol University
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Music%20Square%20College%20of%20Music%20Mahidol%20University%20Salaya
-    - id: salaya-pavilion
-      name: Salaya Pavilion
-      area: Mahidol University International College
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Salaya%20Pavilion%20Hotel%20Mahidol%20University
-    - id: herb-garden
-      name: Herb Garden
-      area: Salaya Pavilion Hotel
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Herb%20Garden%20Salaya%20Pavilion%20Hotel
-    - id: princess-cafe
-      name: Princess Cafe
-      area: Mahidol University, Salaya
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Princess%20Cafe%20Mahidol%20University%20Salaya
-    - id: pizza-ahmuay
-      name: Pizza Ah Muay
-      area: Opposite Mahidol University Gate 4
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Pizza%20Ah%20Muay%20Mahidol%20University%20Gate%204
-    - id: alt-242
-      name: Alt.242
-      area: Mahidol University, Salaya
-      mapsUrl: https://www.google.com/maps/search/?api=1&query=Alt.242%20Mahidol%20University%20Salaya
+  note: Family dinner will be at Say Hay Restaurant after the graduation rehearsal.
+  selected:
+    id: say-hay
+    name: Say Hay Restaurant
+    address: 12, Hom Kret, Sam Phran, Nakhon Pathom 73110
+    mapsUrl: https://maps.app.goo.gl/39erF99kv13kmRCEA
+    coordinates: [100.2332878, 13.7839376]
+    photoCreditUrl: https://www.wongnai.com/articles/say-hay-cafe-cuisine
+    photos:
+      - src: /images/restaurants/say-hay-pond-bridge.jpg
+        alt: The red footbridge leading to Say Hay Restaurant beside its pond
+        caption: The pond-side dining area
+      - src: /images/restaurants/say-hay-food.jpg
+        alt: A plated mushroom-sauce pork dish with vegetables
+        caption: A dish from the restaurant's menu
+      - src: /images/restaurants/say-hay-melon-cake.jpg
+        alt: Melon cake and melon drinks served at Say Hay
+        caption: Melon cake and drinks
 seo:
   title: Austin's Graduation · Mahidol University
   description: A bilingual invite for Austin Jetrin Maddison's graduation at Mahidol University, Salaya — plans, hotels, restaurants, and guests.

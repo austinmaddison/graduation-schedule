@@ -28,7 +28,7 @@ const timelineItems = (plan: Plan): PlanTimelineItem[] =>
     icon: iconFor(row.activity),
     location: row.location,
     notes: row.notes,
-    mapsUrl: campusMapsUrl(row.location)
+    mapsUrl: row.mapsUrl || campusMapsUrl(row.location)
   }))
 </script>
 
@@ -76,16 +76,18 @@ const timelineItems = (plan: Plan): PlanTimelineItem[] =>
             <template #description="{ item }">
               <div class="space-y-1.5">
                 <p class="text-muted">{{ (item as PlanTimelineItem).location }}</p>
-                <a
+                <UButton
                   v-if="(item as PlanTimelineItem).mapsUrl"
-                  :href="(item as PlanTimelineItem).mapsUrl"
+                  :to="(item as PlanTimelineItem).mapsUrl"
+                  external
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 text-primary hover:underline"
-                >
-                  <UIcon name="logos:google-maps" mode="svg" class="size-4" />
-                  {{ t('openInGoogleMaps') }}
-                </a>
+                  color="neutral"
+                  variant="outline"
+                  size="xs"
+                  icon="logos:google-maps"
+                  :label="t('openInGoogleMaps')"
+                />
                 <p class="text-sm text-dimmed">{{ (item as PlanTimelineItem).notes }}</p>
               </div>
             </template>

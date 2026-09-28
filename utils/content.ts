@@ -6,6 +6,7 @@ export interface PlanRow {
   activity: string
   location: string
   notes: string
+  mapsUrl?: string
 }
 
 export interface Plan {
@@ -25,12 +26,14 @@ export interface Hotel {
   image: string
 }
 
-export interface RestaurantSuggestion {
+export interface Restaurant {
   id: string
   name: string
-  area: string
+  address: string
   mapsUrl: string
-  image?: string
+  coordinates: number[]
+  photoCreditUrl: string
+  photos: { src: string, alt: string, caption: string }[]
 }
 
 export interface Guest {
@@ -45,7 +48,7 @@ export interface PageDoc {
   seo?: { title: string, description: string }
   plans: Plan[]
   hotels: Hotel[]
-  restaurants: { note: string, suggestions: RestaurantSuggestion[] }
+  restaurants: { note: string, selected: Restaurant }
   guests: { family: Guest[], friends: Guest[] }
 }
 
