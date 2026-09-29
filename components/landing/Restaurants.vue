@@ -14,13 +14,6 @@ const mapRestaurant = computed(() => ({
     restaurants.selected.coordinates[1]!
   ] as [number, number]
 }))
-
-const restaurantPhotos = computed(() =>
-  restaurants.selected.photos.map(photo => ({
-    ...photo,
-    src: assetUrl(photo.src)!
-  }))
-)
 </script>
 
 <template>
@@ -46,7 +39,7 @@ const restaurantPhotos = computed(() =>
 
     <div class="restaurant-gallery">
       <figure
-        v-for="photo in restaurantPhotos"
+        v-for="photo in restaurants.selected.photos"
         :key="photo.src"
         class="restaurant-gallery-item"
       >
